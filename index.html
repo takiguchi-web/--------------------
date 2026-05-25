@@ -820,8 +820,12 @@ line-height: 2.4;
 /* スマホ */
 @media (max-width: 600px) {
 
+  header {
+    padding: 4px 12px;
+  }
+
   .header-logo {
-    height: 50px;
+    height: 40px;
   }
 
   .header-inner {
@@ -832,6 +836,22 @@ line-height: 2.4;
     display: flex;
     flex-shrink: 0;
     margin-left: 10px;
+
+    width: 30px;
+    height: 22px;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    height: 3px;
+  }
+
+  .menu {
+    top: 45px;
+  }
+
+  body {
+    padding-top: 45px;
   }
 
   .staff-row {
@@ -893,6 +913,7 @@ line-height: 2.4;
     font-size: 16px;
     line-height: 1.8;
   }
+
 }
 
 /* 印刷用 */
