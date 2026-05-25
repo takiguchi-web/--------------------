@@ -520,18 +520,96 @@ header {
 
 /* スマホ */
 @media (max-width: 600px) {
-.header-logo{
-    height: 50px;
+
+  header {
+    padding: 4px 12px;
   }
 
-  .header-inner{
+  .header-logo {
+    height: 40px;
+  }
+
+  .header-inner {
     width: 100%;
   }
 
-  .hamburger{
+  .hamburger {
     display: flex;
     flex-shrink: 0;
     margin-left: 10px;
+
+    width: 30px;
+    height: 22px;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    height: 3px;
+  }
+
+  .menu {
+    top: 45px;
+  }
+
+  body {
+    padding-top: 45px;
+  }
+
+  /* タイトル帯 */
+  .page-title {
+    padding: 35px 15px 25px;
+  }
+
+  .page-title h1 {
+    font-size: 26px;
+  }
+
+  /* 概要 */
+  .intro {
+    margin: 30px 12px 20px;
+    padding: 18px;
+  }
+
+  /* 受付時間 */
+  .reception-info {
+    margin: 20px 12px;
+    padding: 18px;
+  }
+
+  .reception-title {
+    font-size: 18px;
+  }
+
+  .reception-time {
+    font-size: 24px;
+  }
+
+  /* タブ */
+  .tab-buttons {
+    gap: 8px;
+    margin: 30px 0 60px;
+  }
+
+  .tab-btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .tab-character img {
+    width: 55px;
+  }
+
+  .tab-character span {
+    font-size: 11px;
+  }
+
+  /* カード */
+  .exam-item {
+    padding: 16px;
+  }
+
+  .exam-item h3 {
+    font-size: 18px;
   }
 
   .exam-content {
@@ -539,8 +617,8 @@ header {
     align-items: flex-start;
   }
 
-  .exam-images{
-    width:100%;
+  .exam-images {
+    width: 100%;
   }
 
   .exam-images img,
@@ -549,17 +627,38 @@ header {
     max-width: 100%;
   }
 
-  .image-box{
+  .image-box {
     width: 100%;
     max-width: 100%;
   }
 
-  .image-box img{
+  .image-box img {
     width: 100%;
     height: auto;
   }
 
+  .step-badge {
+    width: 50px;
+    height: 50px;
+  }
+
+  .step-badge strong {
+    font-size: 20px;
+  }
+
+  /* 注意事項 */
+  .notice-box {
+    margin: 20px 12px;
+    padding: 18px;
+  }
+
+  .notice-title {
+    font-size: 18px;
+  }
+
 }
+
+
 /* トップボタン */
 #pageTop {
   position: fixed;
