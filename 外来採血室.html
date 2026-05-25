@@ -520,28 +520,35 @@ header {
 
 /* スマホ */
 @media (max-width: 600px) {
- .left {
-    flex: 1;
-  }
-
-}
 
   header {
     padding: 4px 12px;
   }
 
-  .header-logo {
+.left{
+    flex: 1;
+    min-width: 0;
+  }
+
+  .header-logo{
+    max-width: calc(100vw - 70px);
     height: 40px;
+    object-fit: contain;
+  }
+
+   .header-inner {
+    width: 100%;
   }
 
   .hamburger {
+    display: flex;
+    flex-shrink: 0;
+
     width: 30px;
     height: 22px;
     padding: 4px;
 
-    display: flex;
-    flex-shrink: 0;
-    margin-left: 10px;
+    margin-left: auto;
   }
 
   .hamburger span {
