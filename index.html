@@ -240,24 +240,6 @@ header {
   line-height: 2;
 }
 
-/*スマホ対応 */
-@media (max-width: 768px) {
-  .hero-box {
-    width: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-  }
-
-  .hero-box h2 {
-    font-size: 24px;
-  }
-
-  .hero-box p {
-    font-size: 14px;
-  }
-}
-
 /* セクション */
 section {
   padding: 40px 20px;
@@ -790,100 +772,6 @@ line-height: 2.4;
 }
 
 
-/* 全機種対応*/
-@media (max-width: 600px) {
-.header-logo{
-    height: 50px;
-  }
-
-  .header-inner{
-    width: 100%;
-  }
-
-  .hamburger{
-    display: flex;
-    flex-shrink: 0;
-    margin-left: 10px;
-  }
-
- .staff-row {
-    align-items: flex-start;
-  }
-
-  .staff-detail {
-    flex-direction: column;
-    gap: 4px;
-    align-items: flex-end;
-  }
-
- .sp-only {
-    display: block;
-  }
-
-  .iso-wrap {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .iso-img img {
-    width: 80%;
-  }
-
-  .hero-text {
-    font-size: 20px;
-    left: 10px;
-  }
-
-  .dept-wrap {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
- .dept-icon {
-    width: 140px;
-    height: 140px;
-  }
-
-  .dept-card h3 {
-    font-size: 15px;
-  }
-
-.about-inner {
-  flex-direction: column;
-  align-items: center;
-}
-
- #about p {
-    font-size: 15px;
-  }
-
-
-.chief-img {
-  width: 120px;
-  height: 160px;
-}
-
-  .chief-box {
-    position: static;
-    margin-top: 20px;
-  }
-
-  .about-text {
-    padding-right: 0;
-  }
-
-
-.vision-line {
-    font-size: 16px;
-    line-height: 1.8;
-  }
-
-}
 
 /* Instagram*/
 
@@ -907,6 +795,104 @@ img {
 
 .insta-link:hover {
   opacity: 0.8;
+}
+
+
+/* タブレット・スマホ */
+@media (max-width: 768px) {
+  .hero-box {
+    width: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+  }
+
+  .hero-box h2 {
+    font-size: 24px;
+  }
+
+  .hero-box p {
+    font-size: 14px;
+  }
+}
+
+
+/* スマホ */
+@media (max-width: 600px) {
+
+  .header-logo {
+    height: 50px;
+  }
+
+  .header-inner {
+    width: 100%;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  .staff-row {
+    align-items: flex-start;
+  }
+
+  .staff-detail {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-end;
+  }
+
+  .sp-only {
+    display: block;
+  }
+
+  .iso-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .iso-img img {
+    width: 80%;
+  }
+
+  .dept-wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .dept-icon {
+    width: 140px;
+    height: 140px;
+  }
+
+  .dept-card h3 {
+    font-size: 15px;
+  }
+
+  #about p {
+    font-size: 15px;
+  }
+
+  .chief-img {
+    width: 120px;
+    height: 160px;
+  }
+
+  .chief-box {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .vision-line {
+    font-size: 16px;
+    line-height: 1.8;
+  }
 }
 
 /* 印刷用 */
