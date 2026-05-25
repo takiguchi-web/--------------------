@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>香川大学医学部付属病院 検査部門</title>
+
+<meta name="description" content="香川大学医学部附属病院　医療技術部　検査部門のホームページです。">
+<style>
+body {
+  margin: 0;
+  padding-top: 50px;
+  font-family: sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* ヘッダー */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  background: #f5f5f5;
+  color: #222;
+
+  padding: 8px 20px;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+
+  margin-left: 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.header-logo{
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+
+/* 左側まとめる */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* ハンバーガー */
+.hamburger {
+  width: 38px;
+  height: 28px;
+  padding: 8px;
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;        
+  background: #666666;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.menu {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  background: #444;
+  width: 200px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+  transform: translateX(100%);
+  transition: 0.3s;
+}
+
+.menu.open {
+  transform: translateX(0);
+}
+
+.menu a {
+  display: block;
+  margin: 10px 0;
+　font-size: 18px;
+  text-decoration: none;
+  color: #eee;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+
+  cursor: pointer;
+
+  border-radius: 50%;
+  background: #f0f0f0;
+}
+
+.close-btn:hover {
+  background: #ddd;
+}
+
+
+/* ハンバーガー アコーディオン */
+
+.accordion-header {
+  cursor: pointer;
+  padding: 10px 0;
+  color: #fff;
+}
+
+.accordion-content {
+  display: none;
+  padding-left: 10px;
+}
+
+.accordion-content a {
+  display: block;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.accordion.open .accordion-content {
+  display: block;
+}
+
+
+.accordion-header::after {
+  content: "▼";
+  float: right;
+  transition: 0.3s;
+}
+
+.accordion.open .accordion-header::after {
+  transform: rotate(180deg);
+}
+
+
+/* タイトル帯 */
+.page-title {
+  background: #f6eadb; /* 薄いベージュ*/
+  padding: 50px 20px 40px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.page-title h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: #333;
+}
+
+.page-title p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+/* 概要 */
+.intro {
+  max-width: 900px;
+  margin: 60px auto 30px;
+  padding: 25px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  border-top: 5px solid #f5e3c7;
+}
+
+.intro h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: #333;
+}
+
+.intro p {
+  margin: 0;
+  color: #555;
+  font-size: 16px;
+}
+
+/* 患者様へ */
+.location-link{
+  margin-top: 18px;
+}
+
+.location-link a{
+  display: inline-block;
+  background: #f5e3c7;
+  color: #333;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.location-link a:hover{
+  background: #e7c89c;
+  transform: translateY(-2px);
+}
+
+
+/* 採血受付時間 */
+.reception-info{
+  max-width: 900px;
+  margin: 25px auto 10px;
+  padding: 22px 28px;
+
+  background: #f6eadb;
+  border-radius: 14px;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.reception-title{
+  font-size: 22px;
+  font-weight: 600;
+  padding-left: 0px;
+  margin-bottom: 14px;
+}
+
+.reception-time{
+  font-size: 32px;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.reception-info p{
+  margin: 0;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* タブ */
+.tab-buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:40px 0 70px;
+
+ position: relative;
+}
+
+.tab-btn{
+  padding:12px 28px;
+  border:none;
+  border-radius:999px;
+
+  background:#eee;
+  color:#555;
+
+  font-size:16px;
+  font-weight: 600;
+
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.tab-btn.active{
+  background:#f5e3c7;
+  color:#333;
+}
+
+.tab-content{
+  display:none;
+}
+
+.tab-content.active{
+  display:block;
+}
+
+.tab-wrap{
+  position: relative;
+}
+
+.tab-character{
+  position: absolute;
+  top: 35px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  transition: 0.35s ease;
+
+  z-index: 10;
+}
+
+.tab-character img{
+  width: 70px;
+  height: auto;
+}
+
+.tab-character span{
+  margin-top: 4px;
+  font-size: 13px;
+
+  background:#e8f4fb;
+  border:1px solid #b9dff2;
+
+  padding:4px 10px;
+  border-radius:999px;
+
+  color:#486270;
+  font-weight:600;
+
+  white-space: nowrap;
+}
+
+/* 一覧 */
+.exam-list {
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* カード */
+.exam-item {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* タイトル */
+.exam-item h3 {
+  font-size: 22px;
+  font-weight: 600;
+  padding-left: 14px;
+  margin: 0;
+  border-left: 6px solid;
+  border-image: linear-gradient(to bottom, #f6eadb, #f5e3c7) 1;
+}
+
+/* コンテンツ */
+.exam-content {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.exam-content img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.exam-content p {
+  margin: 0;
+  flex: 1;
+  color: #555;
+}
+
+.exam-images{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.exam-images img{
+  width:100%;
+  max-width:300px;
+  border-radius:12px;
+}
+
+.warning-text{
+  color: #d9534f;
+}
+
+/* 画像 */
+.image-box{
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  flex-shrink: 0;
+}
+
+.image-box img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* STEP */
+.step-badge{
+  position: absolute;
+  top: -12px;
+  left: -12px;
+
+  width: 58px;
+  height: 58px;
+
+  background: #e7c89c;
+  color: #fff;
+
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+
+  z-index: 10;
+}
+
+.step-badge span{
+  font-size: 11px;
+  line-height: 1;
+}
+
+.step-badge strong{
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* 注意事項 */
+.notice-box{
+  max-width: 900px;
+  margin: 25px auto 10px;
+  padding: 22px 28px;
+
+  background: #fff;
+
+  border: 6px solid #f5e3c7;
+  border-radius: 14px;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+
+  box-sizing: border-box;
+}
+
+.notice-title{
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #444;
+}
+
+.notice-box ul{
+  margin: 0;
+  padding-left: 22px;
+}
+
+.notice-box li{
+  margin-bottom: 10px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.notice-box .image-box{
+  margin: 20px auto 0;
+}
+
+/* 中間尿囲い*/
+.urine-guide{
+  display: block;
+  margin: 15px auto 0;
+
+  width: 100%;
+  max-width: 300px;
+
+  border: 2px solid #333;
+  border-radius: 6px;
+
+  box-sizing: border-box;
+}
+
+
+.urine2-guide{
+  display: block;
+  margin: 15px auto 0;
+
+  width: 100%;
+  max-width: 300px;
+
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+
+  box-sizing: border-box;
+}
+
+/* スマホ */
+@media (max-width: 600px) {
+.header-logo{
+    height: 50px;
+  }
+
+  .header-inner{
+    width: 100%;
+  }
+
+  .hamburger{
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  .exam-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exam-images{
+    width:100%;
+  }
+
+  .exam-images img,
+  .exam-content img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .image-box{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .image-box img{
+    width: 100%;
+    height: auto;
+  }
+
+}
+/* トップボタン */
+#pageTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  z-index: 1000;
+}
+
+#pageTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.top-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.top-icon {
+  width: 60px;
+  height: auto;
+}
+
+.top-text {
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+
+
+/* フッター*/
+
+.footer {
+  background: #555;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-name {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-info {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* 印刷用 */
+@media print {
+
+  header {
+    display: none;
+  }
+
+  body {
+    padding-top: 0;
+  }
+
+  #pageTop {
+    display: none;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+
+    <div class="left">
+　　 <a href="index.html">
+     <img src="ヘッダー.png"class="header-logo"></a>
+
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+<nav id="menu" class="menu">
+  <div class="close-btn" id="closeBtn">×</div>
+
+  <a href="index.html">HOME</a>
+  <a href="患者様へ.html">患者様へ</a>
+  <a href="index.html#news">お知らせ</a>
+
+  <!-- ▼ アコーディオン -->
+  <div class="accordion">
+    <div class="accordion-header">
+      部門紹介
+    </div>
+
+    <div class="accordion-content">
+      <a href="生化学・免疫検査.html">生化学・免疫検査</a>
+      <a href="血液・一般検査.html">血液・一般検査</a>
+      <a href="感染症検査.html">感染症検査</a>
+      <a href="生理機能検査.html">生理機能検査</a>
+      <a href="外来採血室.html">外来採血室</a>
+    </div>
+  </div>
+
+  <a href="index.html#iso">ISO15189について</a>
+  <a href="検査部Times.html">検査部Times</a>
+  <a href="https://www.instagram.com/kuhkensa" target="_blank">Instagram</a>
+</nav>
+
+
+ </header>
+<section>
+<div class="page-title">
+  <h1>外来採血室</h1>
+  <p>Outpatient Blood Collection Room</p>
+</div>
+
+<div class="intro">
+  <h2>外来採血室</h2>
+  <p>
+外来採血室です。ここでは主治医の指示に従い、採血・採尿をお願いしています。<br>
+<div class="location-link">
+  <a href="患者様へ.html">
+    📍 採血室の場所はこちら
+  </a>
+
+<a href="患者様へ.html#検査部">
+  📢 検査部からのお願いはこちら
+</a>
+
+  </p>
+</div>
+<div class="reception-info">
+  <div class="reception-title">
+採血・採尿受付時間
+  </div>
+
+  <div class="reception-time">
+    　8:30 ～ 16:45
+  </div>
+
+  <p>
+    　上記時間外は、各診療科へお戻りいただき採血をお願いいたします。<br>
+　15:00～16:45は有人受付での対応となります。
+  </p>
+</div>
+
+<div class="tab-buttons">
+  <button class="tab-btn active" data-tab="blood">
+    採血について
+  </button>
+
+  <button class="tab-btn" data-tab="urine">
+    採尿について
+  </button>
+
+<div class="tab-character" id="tabCharacter">
+    <img src="採血室/大事.png" alt="">
+    <span id="tabMessage">採血はこちら！</span>
+  </div>
+
+</div>
+  
+
+</div>
+
+<div class="tab-content active" id="blood">
+<div class="exam-list">
+
+  <div class="exam-item">
+    <h3>採血・採尿受付</h3>
+    <div class="exam-content">
+
+<div class="image-box">
+      <img src="採血室/受付機.jpg">
+  <div class="step-badge">
+    <span>STEP</span>
+    <strong>1</strong>
+  </div>
+
+    </div>
+      <p>採血・採尿検査を受けられる方はこちらの「採血・採尿受付機」で受付をお願いします。受付票のバーコードを読み取り部にかざしてください。<br>
+ブザーが鳴った方はお手数ですが、有人受付までお越しください。<br>
+15:00～16:45は有人受付での対応となります。
+</p>
+    </div>
+  </div>
+
+<div class="exam-item">
+    <h3>受付番号・採尿コップ</h3>
+    <div class="exam-content">
+
+<div class="image-box">
+      <img src="採血室/受付番号と尿コップ.jpg">
+  <div class="step-badge">
+    <span>STEP</span>
+    <strong>2</strong>
+  </div>
+
+    </div>
+      <p>採血がある方は受付番号が、採尿がある方はお名前のラベルが貼られた採尿コップが出てきますので受け取ってください。採血・採尿の両方ともある方は両方ともお忘れなく受け取ってください。その際にはお名前にお間違いがないか、ご確認ください。
+</p>
+    </div>
+  </div>
+
+
+<div class="exam-item">
+    <h3>待合ブース</h3>
+    <div class="exam-content">
+
+<div class="image-box">
+      <img src="採血室/待合.jpg">
+  <div class="step-badge">
+    <span>STEP</span>
+    <strong>3</strong>
+  </div>
+
+    </div>
+      <p>混雑時、採血までお時間をいただく場合がございます。待合ブースでお待ちください。<br>
+電光掲示板に受付番号が表示されましたら採血ブース内にお入りください。<br>
+採血の順番が来た時に、採血室にいらっしゃらなかった場合には、採血室内のモニターの「ご不在番号欄」に番号が表示されています。該当される方は採血室受付スタッフにお声掛けください。
+</p>
+    </div>
+  </div>
+
+
+
+<div class="exam-item">
+    <h3>採血ブース</h3>
+    <div class="exam-content">
+
+    <div class="image-box">
+      <img src="採血室/6ブース.jpg">
+<div class="step-badge">
+    <span>STEP</span>
+    <strong>4</strong>
+  </div>
+
+    </div>
+      <p>採血は全６ブースございます。受付番号が呼ばれるまでお時間をいただく場合がございます。<br>また、時間指定採血、車いすのままでの採血等で順番が前後する場合がございます。</div>
+  </div>
+
+<div class="notice-box">
+  <div class="notice-title">
+    採血時の注意事項
+  </div>
+<p>下記に該当する項目がある場合は必ず採血前にお知らせください。</p>
+
+  <ul>
+    <li>採血時、アルコールやテープでかぶれたことがある方</li>
+    <li>血液がサラサラになるお薬（ワーファリン等）を服用している方</li>
+    <li>採血時に気分が悪くなられたことがある方</li>
+    <li>血液透析中の方・シャントのため血管を確保している方</li>
+    <li>乳房切除手術を受けられた方</li>
+    <li>その他、採血に関してご質問・ご希望・ご不安のある方</li>
+  </ul>
+<br>
+<div class="notice-title">
+    採血後のお願い
+  </div>
+採血後は、内出血や腫れを防ぐため、採血した部位を5分以上しっかり押さえてください。<br>
+また、止血用のテープは長時間貼ったままにすると、かぶれの原因となることがあります。採血後20分程度を目安にはがしてください。
+</div>
+
+  <div class="exam-item">
+    <h3>車いす採血ブース</h3>
+    <div class="exam-content">
+      <img src="採血室/車いす.jpg">
+      <p>車いすのまま採血ができるブースは１～３番までの３ブース用意がございます。車いすのまま採血をご希望される方は気軽に採血室受付スタッフまでお声掛けください。その際、採血の順番が前後する場合がございます。ご了承ください。</p>
+    </div>
+  </div>
+
+  <div class="exam-item">
+    <h3>ベッド</h3>
+    <div class="exam-content">
+      <img src="採血室/ベッド.jpg">
+      <p>血管迷走神経反射(VVR)に備えてベッドを一台用意しております。VVRとは、迷走神経の過剰な刺激により心拍数と血圧が急激に低下し、失神やめまいなどを引き起こす反応です。以前にVVR等採血時にご気分が悪くなられたことがある方は、気軽に採血担当スタッフにお声掛けください。</p>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="tab-content" id="urine">
+<div class="exam-list">
+
+  <div class="exam-item">
+    <h3>採尿受付</h3>
+    <div class="exam-content">
+
+<div class="image-box">
+      <img src="採血室/受付機.jpg">
+  <div class="step-badge">
+    <span>STEP</span>
+    <strong>1</strong>
+  </div>
+
+    </div>
+      <p>採尿検査を受けられる方は、「採血・採尿受付機」にて採尿カップを受け取りください。<br>ブザーが鳴った方はお手数ですが、有人受付までお越しください。<br>
+15:00～16:45は有人受付での対応となります。
+</p>
+    </div>
+  </div>
+
+ <div class="exam-item">
+    <h3>採尿トイレ</h3>
+    <div class="exam-content">
+
+<div class="image-box">
+      <img src="採血室/トイレ.jpg">
+  <div class="step-badge">
+    <span>STEP</span>
+    <strong>2</strong>
+  </div>
+
+    </div>
+      <p>採血室向かいにある採尿お手洗いにて採尿いただき、ご自身で尿提出窓口までお持ちください。</p>
+    </div>
+  </div>
+
+
+  <div class="exam-item">
+    <h3>採尿提出口</h3>
+    <div class="exam-content">
+
+<div class="image-box">
+      <img src="採血室/尿提出口.jpg">
+  <div class="step-badge">
+    <span>STEP</span>
+    <strong>3</strong>
+  </div>
+
+    </div>
+      <p>尿提出口はお手洗い奥にございます。</p>
+    </div>
+  </div>
+
+
+<div class="notice-box">
+  <div class="notice-title">
+    採尿時の注意事項
+  </div>
+  <ul>
+    <li>採尿は中間尿を提出してください。<br>中間尿の採取の仕方は下記の資料をご参考ください。</li>
+<div class="image-box">
+<img src="採血室/中間尿.png" class="urine-guide">
+  </ul>
+</div>
+
+
+ <div class="exam-item">
+    <h3>検査部からのお願い</h3>
+    <div class="exam-content">
+
+<div class="image-box">
+      <img src="採血室/尿量.png" class="urine2-guide">
+  <div class="step-badge">
+    <span>STEP</span>
+    <strong>3</strong>
+  </div>
+
+    </div>
+      <p>尿がどうしても出ない場合、尿量が少ない場合には必ず採血室受付スタッフへとお声がけください。すぐに検査に必要な尿量の確認を行います。また、生理中等で検査の実施ができない方もお声がけください。<br>キャンセルになる場合には会計のキャンセル処理が必要になるため、尿コップをゴミ箱などに捨てないでください。</p>
+    </div>
+  </div>
+
+
+ <div class="exam-item">
+    <h3>バリアフリーお手洗い</h3>
+    <div class="exam-content">
+      <img src="採血室/バリアフリーお手洗い.jpg">
+      <p>バリアフリーお手洗いがございます。車椅子の方や、お身体の不自由な方でもご利用いただきやすいよう、広めのスペースになっております。
+手すりや緊急呼び出しボタンも設置しておりますので、必要時はご利用ください。
+ご不明な点がありましたら、採血室受付スタッフまでお声かけください。<br>
+採尿コップはバリアフリーお手洗い内の提出ボックスの上に置いてください。検査部担当が尿コップを回収いたします。</p>
+    </div>
+  </div>
+
+
+  </div>
+
+</div>
+
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+
+    <p class="footer-name">
+      香川大学医学部附属病院 医療技術部 検査部門
+    </p>
+
+    <p class="footer-info">
+      〒761-0793 香川県木田郡三木町池戸1750-1<br>
+      TEL: 087-898-5111
+    </p>
+
+    <div class="footer-links">
+      <a href="index.html">HOME</a>
+      <a href="患者様へ.html">患者様へ</a>
+      <a href="index.html#部門紹介">部門紹介</a>
+      <a href="https://www.instagram.com/kuhkensa" target="_blank">Instagram</a>
+    </div>
+
+    <p class="copyright">
+      © 2026 Kagawa University Hospital
+    </p>
+
+  </div
+</footer>
+<button id="pageTop">
+  <img src="了解.png" alt="トップへ" class="top-icon">
+ <div class="top-text">PAGE TOPへ</div>
+ </div>
+</button>
+
+<script>
+/* トップボタン */
+const pageTop = document.getElementById("pageTop");
+
+window.addEventListener("scroll", () => {
+  pageTop.classList.toggle("show", window.scrollY > 300);
+});
+
+pageTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+
+
+/* ハンバーガーアイコン */
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+const closeBtn = document.getElementById("closeBtn");
+
+hamburger.addEventListener("click", () => {
+  menu.classList.add("open");
+});
+
+closeBtn.addEventListener("click", () => {
+  menu.classList.remove("open");
+});
+
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove("open");
+  }
+});
+
+
+const accordion = document.querySelector(".accordion");
+const accordionHeader = document.querySelector(".accordion-header");
+
+accordionHeader.addEventListener("click", () => {
+  accordion.classList.toggle("open");
+});
+
+/* タブ*/
+const tabBtns = document.querySelectorAll(".tab-btn");
+const tabContents = document.querySelectorAll(".tab-content");
+
+const tabCharacter = document.getElementById("tabCharacter");
+const tabMessage = document.getElementById("tabMessage");
+
+
+
+function moveCharacter(activeBtn){
+
+  const buttonsArea = document.querySelector(".tab-buttons");
+
+  // 選択されていない方のボタンを取得
+  const targetBtn = [...document.querySelectorAll(".tab-btn")]
+    .find(btn => btn !== activeBtn);
+
+  const btnRect = targetBtn.getBoundingClientRect();
+  const areaRect = buttonsArea.getBoundingClientRect();
+
+  const left =
+    btnRect.left
+    - areaRect.left
+    + (btnRect.width / 2)
+    - 35;
+
+  tabCharacter.style.left = left + "px";
+
+  if(activeBtn.dataset.tab === "blood"){
+    tabMessage.textContent = "採尿はこちらから確認！";
+  } else {
+    tabMessage.textContent = "採血はこちらから確認！";
+  }
+}
+
+/* 初期位置 */
+moveCharacter(document.querySelector(".tab-btn.active"));
+
+tabBtns.forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    tabBtns.forEach(b => b.classList.remove("active"));
+    tabContents.forEach(c => c.classList.remove("active"));
+
+    btn.classList.add("active");
+
+    const target = btn.dataset.tab;
+
+    document
+      .getElementById(target)
+      .classList.add("active");
+
+    moveCharacter(btn);
+
+  });
+
+});
+
+
+</script>
+
+</body>
+</html>

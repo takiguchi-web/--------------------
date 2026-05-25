@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>香川大学医学部付属病院 検査部門</title>
+
+<meta name="description" content="香川大学医学部附属病院　医療技術部　検査部門のホームページです。">
+<style>
+body {
+  margin: 0;
+  padding-top: 50px;
+  font-family: sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* ヘッダー */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  background: #f5f5f5;
+  color: #222;
+
+  padding: 8px 20px;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+
+  margin-left: 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.header-logo{
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+
+/* 左側まとめる */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* ハンバーガー */
+.hamburger {
+  width: 38px;
+  height: 28px;
+  padding: 8px;
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;        
+  background: #666666;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.menu {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  background: #444;
+  width: 200px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+  transform: translateX(100%);
+  transition: 0.3s;
+}
+
+.menu.open {
+  transform: translateX(0);
+}
+
+.menu a {
+  display: block;
+  margin: 10px 0;
+　font-size: 18px;
+  text-decoration: none;
+  color: #eee;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+
+  cursor: pointer;
+
+  border-radius: 50%;
+  background: #f0f0f0;
+}
+
+.close-btn:hover {
+  background: #ddd;
+}
+
+
+/* ハンバーガー アコーディオン */
+
+.accordion-header {
+  cursor: pointer;
+  padding: 10px 0;
+  color: #fff;
+}
+
+.accordion-content {
+  display: none;
+  padding-left: 10px;
+}
+
+.accordion-content a {
+  display: block;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.accordion.open .accordion-content {
+  display: block;
+}
+
+
+.accordion-header::after {
+  content: "▼";
+  float: right;
+  transition: 0.3s;
+}
+
+.accordion.open .accordion-header::after {
+  transform: rotate(180deg);
+}
+
+#times {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 20px;
+}
+
+.times-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.times-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  text-decoration: none;
+  color: #222;
+
+  transition: 0.2s;
+}
+
+.times-item:hover {
+  background: #f5f5f5;
+}
+
+.times-date {
+  width: 90px;
+  color: #666;
+  font-size: 14px;
+}
+
+.times-title {
+  font-size: 16px;
+}
+
+/* 検索エリア全体 */
+
+.search-wrap{
+  position: relative;
+  width: 100%;
+}
+
+.search-character{
+  position: absolute;
+
+  top: -115px;
+  right: 80px;
+
+  width: 160px;
+
+  z-index: 10;
+
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+
+/* 検索BOX */
+#searchInput{
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #d7e8ff;
+  border-radius: 14px;
+  font-size: 15px;
+
+  background: #fafdff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* 移行ボタン */
+.pagination{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.pagination button{
+  padding:8px 14px;
+  border:none;
+  border-radius:8px;
+  background:#eee;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.pagination button:hover{
+  background:#ddd;
+}
+
+.pagination button.active{
+  background:#666;
+  color:#fff;
+}
+
+
+/* スマホ */
+@media (max-width: 600px) {
+.header-logo{
+    height: 50px;
+  }
+
+  .header-inner{
+    width: 100%;
+  }
+
+  .hamburger{
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  .exam-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exam-images{
+    width:100%;
+  }
+
+  .exam-images img,
+  .exam-content img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+}
+
+
+/* トップボタン */
+#pageTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  z-index: 1000;
+}
+
+#pageTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.top-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.top-icon {
+  width: 60px;
+  height: auto;
+}
+
+.top-text {
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+
+
+/* フッター*/
+
+.footer {
+  background: #555;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-name {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-info {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* 印刷用 */
+@media print {
+
+  header {
+    display: none;
+  }
+
+  body {
+    padding-top: 0;
+  }
+
+  #pageTop {
+    display: none;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="left">
+　　 <a href="index.html">
+     <img src="ヘッダー.png" class="header-logo"></a>
+
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+<nav id="menu" class="menu">
+  <div class="close-btn" id="closeBtn">×</div>
+
+  <a href="index.html">HOME</a>
+  <a href="患者様へ.html">患者様へ</a>
+  <a href="index.html#news">お知らせ</a>
+
+  <!-- ▼ アコーディオン -->
+  <div class="accordion">
+    <div class="accordion-header">
+      部門紹介
+    </div>
+
+    <div class="accordion-content">
+      <a href="生化学・免疫検査.html">生化学・免疫検査</a>
+      <a href="血液・一般検査.html">血液・一般検査</a>
+      <a href="感染症検査.html">感染症検査</a>
+      <a href="生理機能検査.html">生理機能検査</a>
+      <a href="外来採血室.html">外来採血室</a>
+    </div>
+  </div>
+
+  <a href="index.html#iso">ISO15189について</a>
+  <a href="検査部Times.html">検査部Times</a>
+  <a href="https://www.instagram.com/kuhkensa" target="_blank">Instagram</a>
+</nav>
+
+
+ </header>
+
+<section id="times">
+  <h2>検査部Times</h2>
+　<div class="search-wrap">
+
+　<img src="検査部times/ずんやり.png" alt="" class="search-character">
+
+  <input type="text" id="searchInput" placeholder="キーワードで検索（例：梅毒）">
+
+  <div class="times-list">
+  
+    <a href="検査部times/times_2024_08.pdf" target="_blank" class="times-item">
+      <div class="times-date">2026.04</div>
+      <div class="times-title">検査部Times 2024年 第9号　　 ～梅毒の検査と診断について～</div>
+    </a>
+
+    <a href="times_2023_08.pdf" target="_blank" class="times-item">
+      <div class="times-date">2026.04</div>
+      <div class="times-title">検査部Times 2023年8月号　　 ～抗酸菌の検査と診断について～</div>
+    </a>
+
+    <a href="times_2025_08.pdf" target="_blank" class="times-item">
+      <div class="times-date">2026.04</div>
+      <div class="times-title">検査部Times 2025年8月号　　～採血管のラベルについて～</div>
+    </a>
+
+  </div>
+<div id="pagination" class="pagination"></div>
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+
+    <p class="footer-name">
+      香川大学医学部附属病院 医療技術部 検査部門
+    </p>
+
+    <p class="footer-info">
+      〒761-0793 香川県木田郡三木町池戸1750-1<br>
+      TEL: 087-898-5111
+    </p>
+
+    <div class="footer-links">
+      <a href="index.html">HOME</a>
+      <a href="患者様へ.html">患者様へ</a>
+      <a href="index.html#部門紹介">部門紹介</a>
+      <a href="https://www.instagram.com/kuhkensa" target="_blank">Instagram</a>
+       </div>
+
+    <p class="copyright">
+      © 2026 Kagawa University Hospital
+    </p>
+
+  </div>
+
+</footer>
+<button id="pageTop">
+  <img src="了解.png" alt="トップへ" class="top-icon">
+ <div class="top-text">PAGE TOPへ</div>
+</div>
+</button>
+
+
+<script>
+/* トップボタン */
+const pageTop = document.getElementById("pageTop");
+
+window.addEventListener("scroll", () => {
+  pageTop.classList.toggle("show", window.scrollY > 300);
+});
+
+pageTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+
+/* ハンバーガーアイコン */
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+const closeBtn = document.getElementById("closeBtn");
+
+hamburger.addEventListener("click", () => {
+  menu.classList.add("open");
+});
+
+closeBtn.addEventListener("click", () => {
+  menu.classList.remove("open");
+});
+
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove("open");
+  }
+});
+
+
+const accordion = document.querySelector(".accordion");
+const accordionHeader = document.querySelector(".accordion-header");
+
+accordionHeader.addEventListener("click", () => {
+  accordion.classList.toggle("open");
+});
+
+/*検索BOX*/
+
+const searchInput = document.getElementById("searchInput");
+const items = document.querySelectorAll(".times-item");
+
+searchInput.addEventListener("input", () => {
+  const keyword = searchInput.value.toLowerCase();
+
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(keyword) ? "flex" : "none";
+  });
+});
+
+/* 移行ボタン */
+const pagination = document.getElementById("pagination");
+
+let currentPage = 1;
+const perPage = 20;
+
+function showItems() {
+
+  items.forEach((item, index) => {
+
+    item.style.display =
+      index >= (currentPage - 1) * perPage &&
+      index < currentPage * perPage
+        ? "flex"
+        : "none";
+  });
+
+  renderPagination();
+}
+
+function renderPagination() {
+
+  pagination.innerHTML = "";
+
+  const totalPages = Math.ceil(items.length / perPage);
+
+  if (totalPages <= 1) return;
+
+  // 前へ
+  if (currentPage > 1) {
+
+    const prev = document.createElement("button");
+    prev.textContent = "←";
+
+    prev.onclick = () => {
+      currentPage--;
+      showItems();
+    };
+
+    pagination.appendChild(prev);
+  }
+
+  // ページ番号
+  for (let i = 1; i <= totalPages; i++) {
+
+    const btn = document.createElement("button");
+
+    btn.textContent = i;
+
+    if (i === currentPage) {
+      btn.classList.add("active");
+    }
+
+    btn.onclick = () => {
+      currentPage = i;
+      showItems();
+    };
+
+    pagination.appendChild(btn);
+  }
+
+  // 次へ
+  if (currentPage < totalPages) {
+
+    const next = document.createElement("button");
+
+    next.textContent = "→";
+
+    next.onclick = () => {
+      currentPage++;
+      showItems();
+    };
+
+    pagination.appendChild(next);
+  }
+}
+
+// 初期表示
+showItems();
+
+</script>
+
+
+</body>
+</html>

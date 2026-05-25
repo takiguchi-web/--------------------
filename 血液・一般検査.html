@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>香川大学医学部付属病院 検査部門</title>
+
+<meta name="description" content="香川大学医学部附属病院　医療技術部　検査部門のホームページです。">
+
+<style>
+body {
+  margin: 0;
+  padding-top: 50px;
+  font-family: sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* ヘッダー */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  background: #f5f5f5;
+  color: #222;
+
+  padding: 8px 20px;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+
+  margin-left: 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.header-logo{
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+
+/* 左側まとめる */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* ハンバーガー */
+.hamburger {
+  width: 38px;
+  height: 28px;
+  padding: 8px;
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;        
+  background: #666666;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.menu {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  background: #444;
+  width: 200px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+  transform: translateX(100%);
+  transition: 0.3s;
+}
+
+.menu.open {
+  transform: translateX(0);
+}
+
+.menu a {
+  display: block;
+  margin: 10px 0;
+　font-size: 18px;
+  text-decoration: none;
+  color: #eee;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+
+  cursor: pointer;
+
+  border-radius: 50%;
+  background: #f0f0f0;
+}
+
+.close-btn:hover {
+  background: #ddd;
+}
+
+
+/* ハンバーガー アコーディオン */
+
+.accordion-header {
+  cursor: pointer;
+  padding: 10px 0;
+  color: #fff;
+}
+
+.accordion-content {
+  display: none;
+  padding-left: 10px;
+}
+
+.accordion-content a {
+  display: block;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.accordion.open .accordion-content {
+  display: block;
+}
+
+
+.accordion-header::after {
+  content: "▼";
+  float: right;
+  transition: 0.3s;
+}
+
+.accordion.open .accordion-header::after {
+  transform: rotate(180deg);
+}
+
+
+/* タイトル帯 */
+.page-title {
+  background: #F3F0FD;  /* ほんのり紫 */
+  padding: 50px 20px 40px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.page-title h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: #333;
+}
+
+.page-title p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+/* 概要 */
+.intro {
+  max-width: 900px;
+  margin: 60px auto 30px;
+  padding: 25px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  border-top: 5px solid #E6E0F8;
+}
+
+.intro h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: #333;
+}
+
+.intro p {
+  margin: 0;
+  color: #555;
+  font-size: 16px;
+}
+
+/* 一覧 */
+.exam-list {
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* カード */
+.exam-item {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* タイトル */
+.exam-item h3 {
+  font-size: 22px;
+  font-weight: 600;
+  padding-left: 14px;
+  margin: 0;
+  border-left: 6px solid;
+  border-image: linear-gradient(to bottom, #E6E0F8, #F3F0FD) 1;
+}
+
+/* コンテンツ */
+.exam-content {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.exam-content img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.exam-content p {
+  margin: 0;
+  flex: 1;
+  color: #555;
+}
+
+
+.exam-content div img {
+  display: block;
+  margin-bottom: 12px;
+}
+
+
+/*分野分け*/
+.group-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 40px 0 20px;
+  padding: 12px 16px;
+
+  background: #F3F0FD; 
+  border-radius: 10px;
+
+  color: #333;
+}
+
+/* 細胞一覧 */
+.cell-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 1カード */
+.cell-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  background: #fafafa;
+  border-radius: 14px;
+  padding: 14px;
+
+  border: 1px solid #eee;
+
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* 細胞画像 */
+.cell-card img {
+  width: 110px;
+  height: 110px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+
+  flex-shrink: 0;
+}
+
+/* テキスト */
+.cell-text h4 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #333;
+}
+
+.cell-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+}
+
+
+/* スマホ */
+@media (max-width: 600px) {
+.header-logo{
+    height: 50px;
+  }
+
+  .header-inner{
+    width: 100%;
+  }
+
+  .hamburger{
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  .exam-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exam-images{
+    width:100%;
+  }
+
+  .exam-images img,
+  .exam-content img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+ .cell-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cell-card img {
+    width: 100%;
+    height: auto;
+  }
+
+
+}
+
+/* トップボタン */
+#pageTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  z-index: 1000;
+}
+
+#pageTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.top-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.top-icon {
+  width: 60px;
+  height: auto;
+}
+
+.top-text {
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+
+
+/* フッター*/
+
+.footer {
+  background: #555;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-name {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-info {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* 印刷用 */
+@media print {
+
+  header {
+    display: none;
+  }
+
+  body {
+    padding-top: 0;
+  }
+
+  #pageTop {
+    display: none;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+    <div class="left">
+　　 <a href="index.html">
+     <img src="ヘッダー.png"class="header-logo"></a>
+
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+<nav id="menu" class="menu">
+  <div class="close-btn" id="closeBtn">×</div>
+
+  <a href="index.html">HOME</a>
+  <a href="患者様へ.html">患者様へ</a>
+  <a href="index.html#news">お知らせ</a>
+
+  <!-- ▼ アコーディオン -->
+  <div class="accordion">
+    <div class="accordion-header">
+      部門紹介
+    </div>
+
+    <div class="accordion-content">
+      <a href="生化学・免疫検査.html">生化学・免疫検査</a>
+      <a href="血液・一般検査.html">血液・一般検査</a>
+      <a href="感染症検査.html">感染症検査</a>
+      <a href="生理機能検査.html">生理機能検査</a>
+      <a href="外来採血室.html">外来採血室</a>
+    </div>
+  </div>
+
+  <a href="index.html#iso">ISO15189について</a>
+  <a href="検査部Times.html">検査部Times</a>
+  <a href="https://www.instagram.com/kuhkensa" target="_blank">Instagram</a>
+</nav>
+
+
+ </header>
+<section>
+<div class="page-title">
+  <h1>血液・一般検査</h1>
+  <p>Hematology and Urinalysis</p>
+</div>
+
+<div class="intro">
+  <h2>血液・一般検査とは</h2>
+  <p>血液・一般検査部門では、血液や尿を調べることで、体の健康状態やさまざまな病気の兆候を確認しています。
+血液検査では血液中の細胞の数や形を、一般検査では尿の性状や成分などを詳しく調べ、診断や治療に必要な情報を提供しています。
+安心して医療を受けていただけるよう、正確で迅速な検査を心がけています。
+</p>
+</div>
+
+<div class="exam-list">
+
+<h2 class="group-title">血液検査</h2>
+
+  <div class="exam-item">
+    <h3>血液検査・血液像・形態学検査</h3>
+    <div class="exam-content">
+ 
+      <img src="血液・一般/顕微鏡.jpg">
+
+      <p>血液検査では、自動分析装置を用いて赤血球・白血球・血小板などの数や性状を測定し、貧血や感染症、炎症性疾患などの評価を行っています。
+また、血液像検査では、臨床検査技師が顕微鏡を用いて血球の形態や成熟度、異常細胞の有無を詳細に観察し、血液疾患の診断や病態把握に役立てています。
+検査データと形態学的所見を総合的に評価することで、迅速かつ精度の高い検査情報を提供し、適切な診療支援に努めています。
+</p>
+    </div>
+<div class="cell-list">
+
+  <div class="cell-card">
+    <img src="血液・一般/好中球.png">
+
+    <div class="cell-text">
+      <h4>好中球</h4>
+      <p>
+        細菌感染などで増加する白血球です。
+        生体防御に重要な役割を担っています。<br>成人：38～74％
+      </p>
+    </div>
+  </div>
+
+  <div class="cell-card">
+    <img src="血液・一般/リンパ球.png">
+
+    <div class="cell-text">
+      <h4>リンパ球</h4>
+      <p>
+        免疫機能に関わる細胞で、
+        ウイルス感染などで変化がみられます。<br>成人：16～50％
+      </p>
+    </div>
+  </div>
+
+<div class="cell-card">
+    <img src="血液・一般/単球.png">
+
+    <div class="cell-text">
+      <h4>単球</h4>
+      <p>
+        体内に侵入した異物や細菌を取り込み、
+      処理する働きを持つ白血球です。
+      炎症や感染症などで増加することがあります。<br>成人：2～10％
+      </p>
+    </div>
+  </div>
+
+<div class="cell-card">
+  <img src="血液・一般/好酸球.png">
+
+  <div class="cell-text">
+    <h4>好酸球</h4>
+    <p>
+      アレルギー反応や寄生虫感染などに関わる白血球です。
+      気管支喘息やアレルギー疾患で増加することがあります。<br>成人：0～9％
+    </p>
+  </div>
+</div>
+
+<div class="cell-card">
+  <img src="血液・一般/好塩基球.png">
+
+  <div class="cell-text">
+    <h4>好塩基球</h4>
+    <p>
+      アレルギー反応に関与する白血球の一種です。
+      ヒスタミンなどの物質を放出し、
+      炎症反応に関わっています。<br>成人：0～3％
+    </p>
+  </div>
+</div>
+
+  <div class="cell-card">
+    <img src="血液・一般/芽球.png">
+
+    <div class="cell-text">
+      <h4>芽球</h4>
+      <p>
+        幼若な血液細胞です。
+        白血病などで出現することがあります。
+      </p>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+<div class="exam-item">
+    <h3>止血検査</h3>
+    <div class="exam-content">
+    <img src="血液・一般/止血.jpg">
+      <p>止血検査では、プロトロンビン時間（PT）、活性化部分トロンボプラスチン時間（APTT）、フィブリノーゲン、FDP、Dダイマーなどを測定し、出血性疾患や血栓性疾患の診断、ならびに抗凝固療法・線溶療法のモニタリングを行っています。<br>
+また、各種凝固因子活性測定に加え、クロスミキシング試験を実施し、凝固因子欠乏とインヒビターの鑑別評価にも対応しています。<br>
+さらに、血小板凝集能検査では、血小板凝集能を評価し、血小板機能異常症の診断や病態把握に役立てています。
+専門性の高い止血・凝固検査を通して、迅速かつ精度の高い検査情報の提供に努めています。
+</p>
+    </div>
+  </div>
+
+
+  <div class="exam-item">
+    <h3>骨髄検査</h3>
+    <div class="exam-content">
+      <img src="血液・一般/骨髄塗抹標本.png">
+      <p>骨髄検査では、骨髄穿刺により採取された骨髄液を用いて標本を作製し、臨床検査技師が顕微鏡による形態学的観察を行っています。
+赤血球・白血球・血小板を産生する骨髄の状態を詳細に評価することで、白血病や悪性リンパ腫、多発性骨髄腫などの血液疾患の診断や治療効果判定、経過観察に役立てています。
+</p>
+    </div>
+  </div>
+
+  <div class="exam-item">
+    <h3>フローサイトメトリー検査</h3>
+    <div class="exam-content">
+      <img src="血液・一般/フローサイト.jpg">
+      <p>フローサイトメトリー検査では、細胞表面抗原や細胞内抗原を解析し、異常細胞の性状や成熟段階を評価しています。当部門では、最大10カラーによるマルチカラー解析を導入しており、より詳細かつ高精度な免疫学的解析を実施しています。形態学的所見と免疫学的解析を組み合わせることで、専門性の高い血液疾患診療を支援しています。
+</p>
+    </div>
+  </div>
+
+<h2 class="group-title">一般検査</h2>
+
+<div class="exam-item">
+    <h3>尿一般定性検査</h3>
+    <div class="exam-content">
+    <img src="血液・一般/尿定性.jpg">
+          <p>一般定性検査では、主に尿を用いて蛋白、糖、潜血、白血球などの項目を測定し、腎・尿路系疾患や糖尿病などのスクリーニングを行っています。<br>
+迅速に体の異常を把握できる検査として、日常診療や健康状態の評価に広く活用されています。
+</p>
+    </div>
+  </div>
+
+<div class="exam-item">
+    <h3>尿沈渣検査</h3>
+    <div class="exam-content">
+      <img src="血液・一般/一般検査沈査.png">
+      <p>尿沈渣検査では、尿中に含まれる赤血球、白血球、上皮細胞、円柱、結晶などの有形成分を顕微鏡で詳細に観察しています。<br>
+これらの所見から、腎疾患や尿路感染症などの病態を評価し、診断や治療方針の決定に役立つ情報を提供しています。
+</p>
+    </div>
+  </div>
+
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+
+    <p class="footer-name">
+      香川大学医学部附属病院 医療技術部 検査部門
+    </p>
+
+    <p class="footer-info">
+      〒761-0793 香川県木田郡三木町池戸1750-1<br>
+      TEL: 087-898-5111
+    </p>
+
+    <div class="footer-links">
+      <a href="index.html">HOME</a>
+      <a href="患者様へ.html">患者様へ</a>
+      <a href="index.html#部門紹介">部門紹介</a>
+      <a href="https://www.instagram.com/kuhkensa" target="_blank">Instagram</a>
+         </div>
+
+    <p class="copyright">
+      © 2026 Kagawa University Hospital
+    </p>
+
+  </div>
+
+</footer>
+<button id="pageTop">
+  <img src="了解.png" alt="トップへ" class="top-icon">
+ <div class="top-text">PAGE TOPへ</div>
+ </div>
+</button>
+
+<script>
+/* トップボタン */
+const pageTop = document.getElementById("pageTop");
+
+window.addEventListener("scroll", () => {
+  pageTop.classList.toggle("show", window.scrollY > 300);
+});
+
+pageTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+
+
+/* ハンバーガーアイコン */
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+const closeBtn = document.getElementById("closeBtn");
+
+hamburger.addEventListener("click", () => {
+  menu.classList.add("open");
+});
+
+closeBtn.addEventListener("click", () => {
+  menu.classList.remove("open");
+});
+
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove("open");
+  }
+});
+
+
+const accordion = document.querySelector(".accordion");
+const accordionHeader = document.querySelector(".accordion-header");
+
+accordionHeader.addEventListener("click", () => {
+  accordion.classList.toggle("open");
+});
+
+</script>
+
+</body>
+</html>

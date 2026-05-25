@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>香川大学医学部付属病院 検査部門</title>
+
+<meta name="description" content="香川大学医学部附属病院　医療技術部　検査部門のホームページです。">
+
+<style>
+body {
+  margin: 0;
+  padding-top: 50px;
+  font-family: sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* ヘッダー */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  background: #f5f5f5;
+  color: #222;
+
+  padding: 8px 20px;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+
+  margin-left: 0;
+}
+
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.header-logo{
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+
+/* 左側まとめる */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* ハンバーガー */
+.hamburger {
+  width: 38px;
+  height: 28px;
+  padding: 8px;
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;        
+  background: #666666;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.menu {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  background: #444;
+  width: 200px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+  transform: translateX(100%);
+  transition: 0.3s;
+}
+
+.menu.open {
+  transform: translateX(0);
+}
+
+.menu a {
+  display: block;
+  margin: 10px 0;
+　font-size: 18px;
+  text-decoration: none;
+  color: #eee;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+
+  cursor: pointer;
+
+  border-radius: 50%;
+  background: #f0f0f0;
+}
+
+.close-btn:hover {
+  background: #ddd;
+}
+
+
+/* ハンバーガー アコーディオン */
+
+.accordion-header {
+  cursor: pointer;
+  padding: 10px 0;
+  color: #fff;
+}
+
+.accordion-content {
+  display: none;
+  padding-left: 10px;
+}
+
+.accordion-content a {
+  display: block;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.accordion.open .accordion-content {
+  display: block;
+}
+
+
+.accordion-header::after {
+  content: "▼";
+  float: right;
+  transition: 0.3s;
+}
+
+.accordion.open .accordion-header::after {
+  transform: rotate(180deg);
+}
+
+
+/* スライド */
+.hero {
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+
+/* 左の半透明ボックス */
+.hero-box {
+  position: absolute;
+  top: 50%;  
+  left: 2%;  
+
+  transform: translateY(-50%);
+
+  width: 28%;   
+  height: 30%;  
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 40px;
+
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0)
+  );
+
+  backdrop-filter: blur(6px);
+
+  color: #333;
+  border-radius: 16px; 
+
+}
+
+/* タイトル */
+.hero-box h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding-bottom: 10px;
+}
+
+/* 文章 */
+.hero-box p {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/*スマホ対応 */
+@media (max-width: 768px) {
+  .hero-box {
+    width: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+  }
+
+  .hero-box h2 {
+    font-size: 24px;
+  }
+
+  .hero-box p {
+    font-size: 14px;
+  }
+}
+
+/* セクション */
+section {
+  padding: 40px 20px;
+  scroll-margin-top: 75px;
+}
+
+section h2 {
+  max-width: 900px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+}
+
+
+/* お知らせ */
+#news h2 {
+  margin-top: 0;
+}
+
+#news {
+  max-width: 900px;
+  margin:  80px auto;
+  padding: 30px;
+
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 14px;
+}
+
+.news-item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px; 
+
+line-height: 2.4;
+}
+
+.date {
+ width: 110px;
+ color: #666;
+ font-size: 14px; 
+} 
+
+.tag {
+ background: #eee;
+ font-size: 12px;
+ padding: 2px 8px;
+ border-radius: 4px;
+ color: #333; 
+}
+
+ .news-item a {
+  color: #222;
+ text-decoration: none;
+} 
+
+.news-item a:hover {
+ text-decoration:
+ underline;
+}
+
+
+/* お知らせくーちゃん */ 
+#news {
+ position: relative;
+}
+
+ .news-char {
+ position: absolute;
+ left: 0px;
+ bottom: 10px;
+ width: 150px;
+ height: auto;
+ z-index: 2;
+
+ pointer-events: none;
+ opacity: 0.95;
+}
+
+/* お知らせ一覧ボタン */
+.hidden {
+  display: none;
+}
+
+#toggleBtn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 8px 16px;
+  border: 1px solid #333;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+
+  position: relative;   
+  z-index: 5
+}
+
+#pagination {
+  text-align: center;
+  margin-top: 30px;
+  position: relative;
+  z-index: 5;  
+}
+
+
+
+/* 挨拶 */
+
+#about h2 {
+  margin-top: 0;
+}
+
+#about {
+  position: relative;
+
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 30px;
+
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 14px;
+}
+
+#about p{
+  font-size:20px;
+}
+
+#about p span {
+  white-space: nowrap;
+}
+
+/* about内レイアウト */
+.about-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.sp-only {
+  display: none;
+}
+
+
+/* 文章 */
+.about-text {
+  flex: 1;
+  padding-right: 220px;
+}
+.vision-text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.vision-line {
+  display: flex;
+  align-items: flex-start;
+
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+
+
+/* 技師長エリア */
+.chief-box {
+  position: absolute;
+
+  right: 3px;
+  bottom: 0px;
+
+  text-align: center;
+}
+
+/* 顔写真 */
+.chief-img {
+  width: 120px;
+  height: 170px;
+
+  object-fit: cover;
+
+  border-radius: 999px;
+  border: 4px solid #fff;
+
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+
+}
+
+.vision-text {
+  padding-right: 180px;
+}
+
+/* 名前 */
+.chief-info {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+}
+
+
+/* トップボタン */
+#pageTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  z-index: 1000;
+}
+
+#pageTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.top-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.top-icon {
+  width: 60px;
+  height: auto;
+}
+
+.top-text {
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+
+.staff-box {
+  background: #fff;
+
+  max-width: 860px;
+
+  margin: 0 auto;
+
+  border: 2px solid #ddd;
+  border-radius: 16px;
+
+  padding: 30px;
+}
+
+.staff-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid #eee;
+}
+
+.staff-row:last-child {
+  border-bottom: none;
+}
+
+.staff-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.staff-detail {
+  display: flex;
+  gap: 25px;
+
+  font-size: 18px;
+  color: #555;
+}
+
+.staff-num {
+  font-size: 18px;
+  color: #555;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* 部門紹介 */
+
+.dept-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+/* カード本体 */
+.dept-card {
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+  color: inherit;
+
+  transition: 0.2s ease;
+}
+
+/* 生化学・免疫検査 */
+.dept-card.blue {
+  background: #dceeff;
+  color: #333;
+}
+
+/* 血液 ・一般検査*/
+.dept-card.purple {
+  background: #E6E0F8;
+  color: #333;
+}
+/* 感染症検査 */
+.dept-card.green {
+  background: #dff5e3;
+  color: #333;
+}
+
+
+/* 生理機能検査 */
+.dept-card.pink {
+  background: #f9dbe7;
+  color: #333;
+}
+
+/* 外来採血室 */
+.dept-card.beige {
+  background: #f5e3c7;
+  color: #333;
+}
+
+/* 中身 */
+.dept-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* アイコン */
+.dept-icon {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+
+/* 文字 */
+.dept-card h3 {
+  font-size: 19px;
+　font-weight: 500;
+  margin: 0;
+  text-align: center;
+}
+
+/* hover */
+.dept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* ISO関連書類*/
+.iso-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+
+  align-items: flex-start;
+
+  max-width: 860px;
+
+  margin: 0 auto;
+
+  padding: 0 20px;
+}
+
+.iso-text {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff;
+}
+
+
+/* 左：画像 */
+.iso-img img {
+  width: 250px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* 右：文章 */
+.iso-text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* 資格取得者 */
+
+#certBtn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border: 1px solid #333;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#certTable {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+#cert table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  table-layout: fixed;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+#cert th,
+#cert td {
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+}
+
+#cert th {
+  background: #eee;
+
+
+}
+#cert th:first-child,
+#cert td:first-child {
+  width: 75%;  
+}
+
+#cert th:last-child,
+#cert td:last-child {
+  width: 25%;  
+  text-align: center;
+}
+
+/* 交互色 */
+#cert tbody tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+
+
+
+/* フッター*/
+
+.footer {
+  background: #555;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-name {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-info {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #aaa;
+}
+
+
+/* 全機種対応*/
+@media (max-width: 600px) {
+.header-logo{
+    height: 50px;
+  }
+
+  .header-inner{
+    width: 100%;
+  }
+
+  .hamburger{
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+ .staff-row {
+    align-items: flex-start;
+  }
+
+  .staff-detail {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-end;
+  }
+
+ .sp-only {
+    display: block;
+  }
+
+  .iso-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .iso-img img {
+    width: 80%;
+  }
+
+  .hero-text {
+    font-size: 20px;
+    left: 10px;
+  }
+
+  .dept-wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ .dept-icon {
+    width: 140px;
+    height: 140px;
+  }
+
+  .dept-card h3 {
+    font-size: 15px;
+  }
+
+.about-inner {
+  flex-direction: column;
+  align-items: center;
+}
+
+ #about p {
+    font-size: 15px;
+  }
+
+
+.chief-img {
+  width: 120px;
+  height: 160px;
+}
+
+  .chief-box {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .about-text {
+    padding-right: 0;
+  }
+
+
+.vision-line {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+}
+
+/* Instagram*/
+
+.insta-area {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.insta-link {
+  display: flex; 
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #222;
+}
+
+.insta-icon {
+  width: 75px;
+  height: 75px;
+}
+
+.insta-link:hover {
+  opacity: 0.8;
+}
+
+/* 印刷用 */
+@media print {
+
+  header {
+    display: none;
+  }
+
+  body {
+    padding-top: 0;
+  }
+
+  #pageTop {
+    display: none;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+
+    <div class="left">
+　　 <a href="index.html">
+     <img src="ヘッダー.png"class="header-logo"></a>
+
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+<nav id="menu" class="menu">
+  <div class="close-btn" id="closeBtn">×</div>
+
+  <a href="index.html">HOME</a>
+  <a href="患者様へ.html">患者様へ</a>
+  <a href="index.html#news">お知らせ</a>
+
+  <!-- ▼ アコーディオン -->
+  <div class="accordion">
+    <div class="accordion-header">
+      部門紹介
+    </div>
+
+    <div class="accordion-content">
+      <a href="生化学・免疫検査.html">生化学・免疫検査</a>
+      <a href="血液・一般検査.html">血液・一般検査</a>
+      <a href="感染症検査.html">感染症検査</a>
+      <a href="生理機能検査.html">生理機能検査</a>
+      <a href="外来採血室.html">外来採血室</a>
+    </div>
+  </div>
+
+  <a href="index.html#iso">ISO15189について</a>
+  <a href="検査部Times.html">検査部Times</a>
+  <a href="https://www.instagram.com/kuhkensa" target="_blank">Instagram</a>
+  </nav>
+
+
+ </header>
+
+
+<section class="hero">
+  <div class="slider">
+    <img src="home/血液.jpg" class="slide active">
+    <img src="home/沈渣.jpg" class="slide">
+    <img src="home/培地.jpg" class="slide">
+  </div>
+
+<div class="hero-box">
+    <h2>品質・精確・創造</h2>
+
+ </div>
+</section>
+
+<section id="news">
+<h2>お知らせ</h2>
+
+<div class="news-item">
+    <span class="date">2026.04.19</span>
+    <span class="tag">更新</span>
+    <a href="検査部Times.html">検査部Times2026年4月号更新しました</a>
+  </div>
+
+
+
+<div class="news-item">
+    <span class="date">2026.04.19</span>
+    <span class="tag">更新</span>
+    <a href="#">ホームページをリニューアルしました</a>
+  </div>
+
+
+  <div class="news-item">
+    <span class="date">2026.04.18</span>
+    <span class="tag">更新</span>
+    <a href="#">ホームページをリニューアルしました</a>
+  </div>
+
+
+  <div class="news-item">
+    <span class="date">2026.04.10</span>
+    <span class="tag">重要</span>
+    <a href="#">検査受付時間の変更について</a>
+  </div>
+
+
+  <div class="news-item">
+    <span class="date">2026.03.28</span>
+    <span class="tag">採用</span>
+    <a href="#">臨床検査技師の募集について</a>
+  </div>
+
+
+
+  <img src="home/検査中.png" class="news-char">
+  <button id="toggleBtn">過去のお知らせを見る</button>
+
+<div id="pagination"></div>
+
+</section>
+<section id="about">
+<h2>香川大学医学部附属病院　医療技術部　<br class="sp-only">
+検査部門のホームページへようこそ</h2>
+
+<div class="vision-text">
+
+   <div class="vision-line">
+    <span class="initial">極めて高い品質と精度を追求し、信頼される検査値を提供します。
+  </div>
+
+  <div class="vision-line">
+    <span class="initial">あらゆる診療科と連携し、患者に最適な医療を支える体制を整えます。</span>
+  </div>
+
+  <div class="vision-line">
+    <span class="initial">いつまでも学び続け、診療・教育・研究・地域医療を通じて未来の医療を創造します。</span>
+  </div>
+
+  <div class="vision-line">
+    <span class="initial">大事な地域医療の一翼として、医療の発展に寄与する検査部を目指します。</span>
+  </div>
+
+</div>
+    <div class="chief-box">
+      <img src="技師長.png" class="chief-img">
+
+      <div class="chief-info">
+        検査部門 技師長<br>
+        多田　智紀
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="staff">
+
+<h2>組織体制</h2>
+
+  <div class="staff-box">
+
+    <div class="staff-row">
+      <span class="staff-title nowrap">臨床検査技師</span>
+
+      <div class="staff-detail">
+        <span>常勤 27名</span>
+        <span>非常勤 9名</span>
+      </div>
+    </div>
+
+    <div class="staff-row">
+      <span class="staff-title">受付</span>
+      <span class="staff-num">2名</span>
+    </div>
+
+    <div class="staff-row">
+      <span class="staff-title">事務</span>
+      <span class="staff-num">1名</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="部門紹介">
+<h2>部門紹介</h2>
+
+  <div class="dept-wrap">
+
+    <a href="生化学・免疫検査.html" class="dept-card blue">
+      <div class="dept-header">
+        <img src="生化学.png" class="dept-icon">
+        <h3>生化学・免疫検査</h3>
+      </div>
+    </a>
+
+    <a href="血液・一般検査.html" class="dept-card purple">
+      <div class="dept-header">
+        <img src="home/血液森さん.jpg" class="dept-icon">
+        <h3>血液・一般検査</h3>
+      </div>
+    </a>
+
+    <a href="感染症検査.html" class="dept-card green">
+      <div class="dept-header">
+        <img src="微生物.png" class="dept-icon">
+        <h3>感染症検査</h3>
+      </div>
+    </a>
+
+    <a href="生理機能検査.html" class="dept-card pink">
+      <div class="dept-header">
+        <img src="home/心電図1.jpg" class="dept-icon">
+        <h3>生理機能検査</h3>
+      </div>
+    </a>
+
+    <a href="外来採血室.html" class="dept-card beige">
+      <div class="dept-header">
+        <img src="home/採血.jpg" class="dept-icon">
+        <h3>外来採血室</h3>
+      </div>
+    </a>
+
+  </div>
+
+
+</section>
+<section id="iso">
+  <h2>ISO15189 認定について</h2>
+
+  <div class="iso-wrap">
+    
+    <div class="iso-img">
+      <img src="home/iso15189_cert.png">
+    </div>
+
+    <div class="iso-text">
+      <p>
+        当検査部門は、国際規格 ISO15189（臨床検査室の品質と能力に関する要求事項）を取得しています。
+      </p>
+
+      <p>
+        本認定は、検査結果の信頼性・精度管理・品質保証体制が国際基準を満たしていることを示すものです。
+        今後も高品質な検査サービスの提供に努めてまいります。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="cert">
+<h2>資格取得状況</h2>
+
+  <button id="certBtn">資格一覧を見る</button>
+
+  <div id="certTable" class="hidden">
+    <table>
+      <tr>
+        <th>資格</th>
+        <th>人数</th>
+      </tr>
+
+      <tr><td>認定血液検査技師</td><td>2</td></tr>
+      <tr><td>認定一般検査技師</td><td>1</td></tr>
+      <tr><td>認定臨床微生物検査技師</td><td>4</td></tr>
+      <tr><td>認定輸血検査技師</td><td>1</td></tr>
+      <tr><td>超音波検査士（循環器領域）</td><td>2</td></tr>
+      <tr><td>認定臨床化学・免疫化学精度管理検査技師</td><td>3</td></tr>
+      <tr><td>一級遺伝子分析科学認定士</td><td>1</td></tr>
+      <tr><td>緊急臨床検査士</td><td>8</td></tr>
+      <tr><td>二級臨床検査士（血液学）</td><td>5</td></tr>
+      <tr><td>二級臨床検査士（臨床化学）</td><td>4</td></tr>
+      <tr><td>二級臨床検査士（微生物学）</td><td>6</td></tr>
+      <tr><td>二級臨床検査士（神経生理学）</td><td>1</td></tr>
+      <tr><td>二級臨床検査士（呼吸生理学）</td><td>1</td></tr>
+      <tr><td>遺伝子分析科学認定士（初級）</td><td>2</td></tr>
+      <tr><td>上級バイオ技術認定</td><td>1</td></tr>
+      <tr><td>心電図検定1級</td><td>1</td></tr>
+      <tr><td>心電図検定2級</td><td>3</td></tr>
+      <tr><td>心電図検定3級</td><td>2</td></tr>
+      <tr><td>日本サイトメトリー技術者</td><td>2</td></tr>
+      <tr><td>第二種ME技術者</td><td>3</td></tr>
+      <tr><td>臨床工学技士</td><td>1</td></tr>
+      <tr><td>健康食品管理士</td><td>1</td></tr>
+      <tr><td>感染制御認定微生物技師（ICMT）</td><td>1</td></tr>
+      <tr><td>NST専門療養士</td><td>1</td></tr>
+      <tr><td>日本糖尿病療養指導士</td><td>2</td></tr>
+      <tr><td>初級システムアドミニストレータ</td><td>1</td></tr>
+      <tr><td>日本臨床神経生理学専門技術士</td><td>1</td></tr>
+      <tr><td>細胞治療認定管理師</td><td>1</td></tr>
+      <tr><td>一般劇毒物取扱者資格</td><td>1</td></tr>
+      <tr><td>日本DMAT隊員・業務調整員資格</td><td>1</td></tr>
+
+    </table>
+  </div>
+</section>
+
+<section id="instagram">
+<h2>Instagram</h2>
+　<div class="insta-area">
+    <a href="https://www.instagram.com/kuhkensa/" target="_blank" class="insta-link">
+      <img src="home/Instagram.png" class="insta-icon">
+      <span><div>香川大学医学部附属病院 検査部 Instagramはこちら<br>
+    検査部の様子やお知らせを発信しています。</div></span>
+    </a>
+  </div>
+</section>
+
+
+ <footer class="footer">
+  <div class="footer-inner">
+
+    <p class="footer-name">
+      香川大学医学部附属病院 医療技術部 検査部門
+    </p>
+
+    <p class="footer-info">
+      〒761-0793 香川県木田郡三木町池戸1750-1<br>
+      TEL: 087-898-5111
+    </p>
+
+    <div class="footer-links">
+      <a href="index.html">HOME</a>
+      <a href="患者様へ.html">患者様へ</a>
+      <a href="index.html#部門紹介">部門紹介</a>
+      <a href="https://www.instagram.com/kuhkensa" target="_blank">Instagram</a>
+    </div>
+
+    <p class="copyright">
+      © 2026 Kagawa University Hospital
+    </p>
+
+  </div>
+
+</footer>
+
+<button id="pageTop">
+  <img src="了解.png" alt="トップへ" class="top-icon">
+ <div class="top-text">PAGE TOPへ</div>
+ </div>
+</button>
+
+
+
+<script>
+
+
+/* スライド */
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 5000);
+
+/* お知らせ */
+
+const items = document.querySelectorAll(".news-item");
+const btn = document.getElementById("toggleBtn");
+const pagination = document.getElementById("pagination");
+
+let expanded = false;
+let currentPage = 1;
+
+const firstView = 3;
+const perPage = 15; 
+
+function showItems() {
+  items.forEach((item, index) => {
+    if (!expanded) {
+      // 最初の3件
+      item.style.display = index < firstView ? "flex" : "none";
+    } else {
+      // ページネーション表示
+      item.style.display =
+        index >= (currentPage - 1) * perPage &&
+        index < currentPage * perPage
+          ? "flex"
+          : "none";
+    }
+  });
+
+  renderPagination();
+}
+
+function renderPagination() {
+  pagination.innerHTML = "";
+
+  if (!expanded) return;
+
+  const totalPages = Math.ceil(items.length / perPage);
+
+  if (totalPages <= 1) return;
+
+  // 前へ
+  if (currentPage > 1) {
+    const prev = document.createElement("button");
+    prev.textContent = "← 前へ";
+    prev.onclick = () => {
+      currentPage--;
+      showItems();
+    };
+    pagination.appendChild(prev);
+  }
+
+  // ページ番号
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    if (i === currentPage) btn.classList.add("active");
+    btn.onclick = () => {
+      currentPage = i;
+      showItems();
+    };
+    pagination.appendChild(btn);
+  }
+
+  // 次へ
+  if (currentPage < totalPages) {
+    const next = document.createElement("button");
+    next.textContent = "次へ →";
+    next.onclick = () => {
+      currentPage++;
+      showItems();
+    };
+    pagination.appendChild(next);
+  }
+}
+
+// ボタン
+btn.addEventListener("click", () => {
+  expanded = !expanded;
+  currentPage = 1;
+
+  btn.textContent = expanded ? "閉じる" : "過去のお知らせを見る";
+
+  showItems();
+});
+
+// 初期表示
+showItems();
+
+
+/* トップボタン */
+const pageTop = document.getElementById("pageTop");
+
+window.addEventListener("scroll", () => {
+  pageTop.classList.toggle("show", window.scrollY > 300);
+});
+
+pageTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+
+
+/* ハンバーガーアイコン */
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+const closeBtn = document.getElementById("closeBtn");
+
+hamburger.addEventListener("click", () => {
+  menu.classList.add("open");
+});
+
+closeBtn.addEventListener("click", () => {
+  menu.classList.remove("open");
+});
+
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove("open");
+  }
+});
+
+
+const accordion = document.querySelector(".accordion");
+const accordionHeader = document.querySelector(".accordion-header");
+
+accordionHeader.addEventListener("click", () => {
+  accordion.classList.toggle("open");
+});
+
+
+/* 資格取得者 */
+const certBtn = document.getElementById("certBtn");
+const certTable = document.getElementById("certTable");
+
+let openCert = false;
+
+certBtn.addEventListener("click", () => {
+  openCert = !openCert;
+  certTable.classList.toggle("hidden");
+
+  certBtn.textContent = openCert ? "閉じる" : "資格一覧を見る";
+});
+
+
+</script>
+
+
+</body>
+</html>

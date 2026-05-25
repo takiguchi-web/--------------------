@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>香川大学医学部付属病院 検査部門</title>
+
+<meta name="description" content="香川大学医学部附属病院　医療技術部　検査部門のホームページです。">
+
+<style>
+body {
+  margin: 0;
+  padding-top: 50px;
+  font-family: sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* ヘッダー */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  background: #f5f5f5;
+  color: #222;
+
+  padding: 8px 20px;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+
+  margin-left: 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.header-logo{
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+
+/* 左側まとめる */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* ハンバーガー */
+.hamburger {
+  width: 38px;
+  height: 28px;
+  padding: 8px;
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;        
+  background: #666666;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.menu {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  background: #444;
+  width: 200px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+  transform: translateX(100%);
+  transition: 0.3s;
+}
+
+.menu.open {
+  transform: translateX(0);
+}
+
+.menu a {
+  display: block;
+  margin: 10px 0;
+　font-size: 18px;
+  text-decoration: none;
+  color: #eee;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+
+  cursor: pointer;
+
+  border-radius: 50%;
+  background: #f0f0f0;
+}
+
+.close-btn:hover {
+  background: #ddd;
+}
+
+
+/* ハンバーガー アコーディオン */
+
+.accordion-header {
+  cursor: pointer;
+  padding: 10px 0;
+  color: #fff;
+}
+
+.accordion-content {
+  display: none;
+  padding-left: 10px;
+}
+
+.accordion-content a {
+  display: block;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.accordion.open .accordion-content {
+  display: block;
+}
+
+
+.accordion-header::after {
+  content: "▼";
+  float: right;
+  transition: 0.3s;
+}
+
+.accordion.open .accordion-header::after {
+  transform: rotate(180deg);
+}
+
+
+/* タイトル帯 */
+.page-title {
+  background: #fbedf2; /* ほんのりピンク */
+  padding: 50px 20px 40px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.page-title h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: #333;
+}
+
+.page-title p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+/* 概要 */
+.intro {
+  max-width: 900px;
+  margin: 60px auto 30px;
+  padding: 25px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  border-top: 5px solid #f9dbe7;
+}
+
+.intro h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: #333;
+}
+
+.intro p {
+  margin: 0;
+  color: #555;
+  font-size: 16px;
+}
+
+/* 患者様へ */
+.location-link{
+  margin-top: 18px;
+}
+
+.location-link a{
+  display: inline-block;
+  background: #f9dbe7;
+  color: #333;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.location-link a:hover{
+  background: #f3c4d6;
+  transform: translateY(-2px);
+}
+
+
+/* 一覧 */
+.exam-list {
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* カード */
+.exam-item {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* タイトル */
+.exam-item h3 {
+  font-size: 22px;
+  font-weight: 600;
+  padding-left: 14px;
+  margin: 0;
+  border-left: 6px solid;
+  border-image: linear-gradient(to bottom, #f9dbe7, #f3c4d6) 1;
+}
+
+/* コンテンツ */
+.exam-content {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.exam-content img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.exam-content p {
+  margin: 0;
+  flex: 1;
+  color: #555;
+}
+
+/*分野分け*/
+.group-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 40px 0 20px;
+  padding: 12px 16px;
+
+  background: #fbedf2;
+  border-radius: 10px;
+
+  color: #333;
+}
+
+/*その他　羅列*/
+.exam-subsection {
+  margin-top: 15px;
+
+display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.sub-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 15px 0 5px;
+  color: #444;
+}
+
+.exam-subsection ul {
+  margin: 0 0 10px 15px;
+  padding: 0;
+}
+
+.exam-subsection li {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 3px;
+}
+
+/* スマホ */
+@media (max-width: 600px) {
+.header-logo{
+    height: 50px;
+  }
+
+  .header-inner{
+    width: 100%;
+  }
+
+  .hamburger{
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  .exam-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exam-images{
+    width:100%;
+  }
+
+  .exam-images img,
+  .exam-content img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .exam-subsection {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+/* トップボタン */
+#pageTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  z-index: 1000;
+}
+
+#pageTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.top-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.top-icon {
+  width: 60px;
+  height: auto;
+}
+
+.top-text {
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* フッター*/
+
+.footer {
+  background: #555;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-name {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-info {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* 印刷用 */
+@media print {
+
+  header {
+    display: none;
+  }
+
+  body {
+    padding-top: 0;
+  }
+
+  #pageTop {
+    display: none;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+    <div class="left">
+　　 <a href="index.html">
+     <img src="ヘッダー.png"class="header-logo"></a>
+
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+<nav id="menu" class="menu">
+  <div class="close-btn" id="closeBtn">×</div>
+
+  <a href="index.html">HOME</a>
+  <a href="患者様へ.html">患者様へ</a>
+  <a href="index.html#news">お知らせ</a>
+
+  <!-- ▼ アコーディオン -->
+  <div class="accordion">
+    <div class="accordion-header">
+      部門紹介
+    </div>
+
+    <div class="accordion-content">
+      <a href="生化学・免疫検査.html">生化学・免疫検査</a>
+      <a href="血液・一般検査.html">血液・一般検査</a>
+      <a href="感染症検査.html">感染症検査</a>
+      <a href="生理機能検査.html">生理機能検査</a>
+      <a href="外来採血室.html">外来採血室</a>
+    </div>
+  </div>
+
+  <a href="index.html#iso">ISO15189について</a>
+  <a href="検査部Times.html">検査部Times</a>
+  <a href="https://www.instagram.com/kuhkensa" target="_blank">Instagram</a>
+</nav>
+
+
+ </header>
+<section>
+<div class="page-title">
+  <h1>生理機能検査</h1>
+  <p>Physiological Examination</p>
+</div>
+
+<div class="intro">
+  <h2>生理機能検査とは</h2>
+  <p>生理検査室では、心臓・呼吸・神経などの働きを、身体にできるだけ負担をかけずに調べる各種検査を行っています。
+検査は主に臨床検査技師が担当し、正確で安全な検査を心がけながら、患者さんが安心して受けられる環境づくりに努めています。<br>
+ <div class="location-link">
+<a href="患者様へ.html#生理機能">
+  📢 生理機能検査室からのお願いはこちら
+</a>
+
+
+  </p>
+</div>
+
+<div class="exam-list">
+
+<h2 class="group-title">循環生理</h2>
+  <div class="exam-item">
+    <h3>心電図検査</h3>
+    <div class="exam-content">
+      <img src="生理機能/心電図1.jpg">
+      <p>心電図検査は、心臓の電気的な活動を記録する検査です。<br>
+通常の心電図検査に加えて、自律神経の機能を評価するCV-RRや心室遅延電位検査、日常生活中の心電図を記録するホルター心電図等の検査も実施しています。<br>
+その他、動脈硬化や心血管リスクの早期発見に役立つ血圧脈波検査や血管内皮機能検査もおこなっています。</p>
+    </div>
+  </div>
+
+
+  <div class="exam-item">
+    <h3>負荷心電図検査</h3>
+    <div class="exam-content">
+      <img src="生理機能/心電図1.jpg">
+      <p>当検査室では、運動や薬剤による心臓への負荷を評価する負荷心電図検査にも対応しています。<br>
+・マスター負荷心電図<br>
+・トレッドミル<br>
+・エルゴメーター<br>
+・心肺運動負荷試験(CPｘ) 
+</p>
+    </div>
+  </div>
+
+<h2 class="group-title">神経生理</h2>
+
+<div class="exam-item">
+    <h3>脳波検査</h3>
+    <div class="exam-content">
+    <img src="生理機能/脳波.jpg">
+      <p>脳波検査は、脳の電気的な活動を記録し、脳の状態を評価する検査です。
+頭皮に電極を装着して行い、安静時や刺激を加えた際の脳波を測定します。検査による痛みはありません。検査時間は1時間程度です。
+</p>
+    </div>
+  </div>
+
+
+  <div class="exam-item">
+    <h3>神経伝導検査</h3>
+    <div class="exam-content">
+   <img src="生理機能/脳波.jpg">
+    <p>神経伝導検査は、末梢の運動・感覚神経を電気刺激により興奮させることで、その反応を筋肉や神経上から記録する検査です。<br>
+痛みを伴う検査ですので、随時患者さんに声掛けを行いながら検査を行っています。<br>検査時間は1時間程度です。<br>
+その他、糖尿病性神経障害スクリーニングや電流知覚閾値検査もおこなっています。
+</p>
+    </div>
+  </div>
+
+<div class="exam-item">
+    <h3>新生児聴覚スクリーニング</h3>
+    <div class="exam-content">
+     <p>難聴の有無を発見するために、出生後早期に行う聴覚スクリーニング検査です。</p>
+    </div>
+  </div>
+
+
+<h2 class="group-title">呼吸生理</h2>
+<div class="exam-item">
+    <h3>呼吸機能検査</h3>
+    <div class="exam-content">
+    <img src="生理機能/呼吸機能.jpg">
+      <p>呼吸機能検査では、肺の大きさや空気の出入りの状態を評価する検査や喘息の診断に役立つ呼気中NOの測定をおこなっています。<br>
+正しい検査結果を得るためには患者さんの協力が重要となるため、検査内容をわかりやすく説明し、安心して受けていただけるよう心がけています。</p>
+    </div>
+  </div>
+<h2 class="group-title">その他生理機能検査</h2>
+  <div class="exam-item">
+    <h3>終夜ポリグラフィー</h3>
+    <div class="exam-content">
+      <p>終夜ポリグラフィーは、いびきや呼吸、脳波、酸素飽和度など睡眠中の身体のさまざまな生理的な変化を一晩かけて記録・分析する検査です。睡眠時無呼吸症候群の診断に役立ちます。</p>
+    </div>
+  </div>
+
+ <div class="exam-item">
+    <h3>尿素呼気試験</h3>
+    <div class="exam-content">
+      <p>尿素呼気試験は、胃がんの原因とされるヘリコバクター・ピロリ菌感染の有無を調べる検査です。</p>
+    </div>
+  </div>
+
+
+</div>
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+
+    <p class="footer-name">
+      香川大学医学部附属病院 医療技術部 検査部門
+    </p>
+
+    <p class="footer-info">
+      〒761-0793 香川県木田郡三木町池戸1750-1<br>
+      TEL: 087-898-5111
+    </p>
+
+    <div class="footer-links">
+      <a href="index.html">HOME</a>
+      <a href="患者様へ.html">患者様へ</a>
+      <a href="index.html#部門紹介">部門紹介</a>
+      <a href="https://www.instagram.com/kuhkensa" target="_blank">Instagram</a>
+         </div>
+
+    <p class="copyright">
+      © 2026 Kagawa University Hospital
+    </p>
+
+  </div>
+
+</footer>
+<button id="pageTop">
+  <img src="了解.png" alt="トップへ" class="top-icon">
+ <div class="top-text">PAGE TOPへ</div>
+
+</button>
+
+<script>
+/* トップボタン */
+const pageTop = document.getElementById("pageTop");
+
+window.addEventListener("scroll", () => {
+  pageTop.classList.toggle("show", window.scrollY > 300);
+});
+
+pageTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+
+
+
+
+/* ハンバーガーアイコン */
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+const closeBtn = document.getElementById("closeBtn");
+
+hamburger.addEventListener("click", () => {
+  menu.classList.add("open");
+});
+
+closeBtn.addEventListener("click", () => {
+  menu.classList.remove("open");
+});
+
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove("open");
+  }
+});
+
+
+const accordion = document.querySelector(".accordion");
+const accordionHeader = document.querySelector(".accordion-header");
+
+accordionHeader.addEventListener("click", () => {
+  accordion.classList.toggle("open");
+});
+
+</script>
+
+</body>
+</html>
