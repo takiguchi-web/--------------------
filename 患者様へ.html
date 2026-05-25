@@ -425,8 +425,20 @@ header {
 
 /* スマホ */
 @media (max-width: 600px) {
-.header-logo{
-    height: 50px;
+
+  header {
+    padding: 4px 12px;
+  }
+
+  .left{
+    flex: 1;
+    min-width: 0;
+  }
+
+  .header-logo{
+    max-width: calc(100vw - 70px);
+    height: 40px;
+    object-fit: contain;
   }
 
   .header-inner{
@@ -436,7 +448,24 @@ header {
   .hamburger{
     display: flex;
     flex-shrink: 0;
-    margin-left: 10px;
+
+    width: 30px;
+    height: 22px;
+    padding: 4px;
+
+    margin-left: auto;
+  }
+
+  .hamburger span{
+    height: 3px;
+  }
+
+  .menu{
+    top: 45px;
+  }
+
+  body{
+    padding-top: 45px;
   }
 
   .exam-content {
@@ -447,10 +476,11 @@ header {
     width: 100%;
   }
 
-.exam-subsection {
+  .exam-subsection {
     grid-template-columns: 1fr;
   }
 }
+
 
 /* トップボタン */
 #pageTop {

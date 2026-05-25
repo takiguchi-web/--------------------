@@ -294,12 +294,14 @@ header {
 
 /* スマホ */
 @media (max-width: 600px) {
-.header-logo{
+
+  .header-logo{
     height: 50px;
   }
 
   .header-inner{
     width: 100%;
+    padding: 0 10px;
   }
 
   .hamburger{
@@ -308,33 +310,85 @@ header {
     margin-left: 10px;
   }
 
-  .exam-content {
+  /* タイトル帯 */
+  .page-title{
+    padding: 40px 15px 30px;
+  }
+
+  .page-title h1{
+    font-size: 24px;
+  }
+
+  .page-title p{
+    font-size: 13px;
+  }
+
+  /* 説明ボックス */
+  .intro{
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  .intro h2{
+    font-size: 20px;
+  }
+
+  .intro p{
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* カード */
+  .exam-list{
+    margin: 30px 15px;
+  }
+
+  .exam-item{
+    padding: 15px;
+  }
+
+  .exam-item h3{
+    font-size: 18px;
+  }
+
+  /* 画像と文章を縦並び */
+  .exam-content{
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 15px;
   }
 
-  .exam-images{
-    width:100%;
-  }
-
-  .exam-images img,
-  .exam-content img {
+  .exam-content img{
     width: 100%;
-    max-width: 100%;
-  }
-
-  .image-box{
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .image-box img{
-    width: 100%;
+    max-width: 320px;
     height: auto;
   }
 
-}
+  .exam-text{
+    width: 100%;
+  }
 
+  .exam-text p{
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .category{
+    margin-bottom: 12px;
+  }
+
+  /* 最後の文章 */
+  .exam-subsection{
+    margin: 30px 15px;
+    text-align: left;
+  }
+
+  .exam-subsection p{
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+}
 /* トップボタン */
 #pageTop {
   position: fixed;
