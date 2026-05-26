@@ -380,7 +380,9 @@ line-height: 2.4;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 30px;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .sp-only {
@@ -411,10 +413,11 @@ line-height: 2.4;
 
 /* 技師長エリア */
 .chief-box {
-  position: absolute;
-
-  right: 3px;
-  bottom: 0px;
+ position: static; 
+ text-align: center;
+ flex-shrink: 0;
+ right: 3px;
+ bottom: 0px;
 
   text-align: center;
 }
@@ -434,7 +437,10 @@ line-height: 2.4;
 }
 
 .vision-text {
-  padding-right: 180px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 /* 名前 */
@@ -488,6 +494,24 @@ line-height: 2.4;
   letter-spacing: 0.5px;
 }
 
+
+  .about-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vision-text {
+    order: 1;
+  }
+
+  .chief-box {
+    order: 2;
+  }
+
+  .chief-img {
+    width: 120px;
+    height: 160px;
+  }
 
 .staff-box {
   background: #fff;
@@ -1048,40 +1072,41 @@ line-height: 2.4;
 <div id="pagination"></div>
 
 </section>
+
 <section id="about">
 <h2>香川大学医学部附属病院　医療技術部　<br class="sp-only">
 検査部門のホームページへようこそ</h2>
 
-<div class="vision-text">
+<div class="about-inner">
 
-   <div class="vision-line">
-    <span class="initial">極めて高い品質と精度を追求し、信頼される検査値を提供します。
+  <div class="vision-text">
+    <div class="vision-line">
+      極めて高い品質と精度を追求し、信頼される検査値を提供します。
+    </div>
+
+    <div class="vision-line">
+      あらゆる診療科と連携し、患者に最適な医療を支える体制を整えます。
+    </div>
+
+    <div class="vision-line">
+      いつまでも学び続け、診療・教育・研究・地域医療を通じて未来の医療を創造します。
+    </div>
+
+    <div class="vision-line">
+      大事な地域医療の一翼として、医療の発展に寄与する検査部を目指します。
+    </div>
   </div>
 
-  <div class="vision-line">
-    <span class="initial">あらゆる診療科と連携し、患者に最適な医療を支える体制を整えます。</span>
-  </div>
+  <div class="chief-box">
+    <img src="技師長.png" class="chief-img">
 
-  <div class="vision-line">
-    <span class="initial">いつまでも学び続け、診療・教育・研究・地域医療を通じて未来の医療を創造します。</span>
-  </div>
-
-  <div class="vision-line">
-    <span class="initial">大事な地域医療の一翼として、医療の発展に寄与する検査部を目指します。</span>
+    <div class="chief-info">
+      検査部門 技師長<br>
+      多田　智紀
+    </div>
   </div>
 
 </div>
-    <div class="chief-box">
-      <img src="技師長.png" class="chief-img">
-
-      <div class="chief-info">
-        検査部門 技師長<br>
-        多田　智紀
-      </div>
-    </div>
-
-  </div>
-
 </section>
 
 <section id="staff">
