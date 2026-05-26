@@ -884,8 +884,8 @@ line-height: 2.4;
   }
 
   .hero {
-    height: auto;
     aspect-ratio: 16 / 9;
+    max-height: 55vh;
   }
 
 section {
@@ -900,16 +900,23 @@ section {
     padding: 0 15px;
   }
 
-.slide {
-    position: absolute; 
+ .slide {
+    position: absolute;
     width: 100%;
     height: 100%;
-  }
+    object-fit: contain;
+    object-position: center 30%;
+     }
 
   .slider {
     position: relative;
   }
   
+ #news {
+    margin-top: 40px;
+  }
+
+ 
  #about p {
     font-size: 15px;
   }
