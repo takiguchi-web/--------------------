@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>香川大学医学部付属病院 検査部門</title>
+<title>香川大学医学部付属病院 検査部</title>
 
-<meta name="description" content="香川大学医学部附属病院　医療技術部　検査部門のホームページです。">
+<meta name="description" content="香川大学医学部附属病院　検査部のホームページです。">
 
 <style>
 body {
@@ -23,34 +23,32 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  box-sizing: border-box;
+
   background: #f5f5f5;
   color: #222;
+
   padding: 8px 20px;
+
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   z-index: 1000;
-}
 
-.logo {
-  width: 58px;
-  height: auto;
+  margin-left: 0;
 }
-
-.title {
-  font-size: 20px;
-  line-height: 1.3;
-}
-
-.title small {
-  font-size: 14px;
-  color: #888;
-}
-
 
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0;
 }
+
+.header-logo{
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
 
 /* 左側まとめる */
 .left {
@@ -61,13 +59,6 @@ header {
 
 
 /* ハンバーガー */
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 18px; 
-}
-
 .hamburger {
   width: 38px;
   height: 28px;
@@ -297,31 +288,40 @@ display: grid;
 
 /* スマホ */
 @media (max-width: 600px) {
-.title {
-    font-size: 14px;
-    line-height: 1.2;
+
+  .header-logo{
+    height: 40px;
   }
 
-  .title small {
-    font-size: 10px;
-  }
-
-  .exam-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .exam-images{
-    width:100%;
-  }
-
-  .exam-images img,
-  .exam-content img {
+  .header-inner{
     width: 100%;
-    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .hamburger{
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 10px;
+
+    width: 30px;
+    height: 22px;
+    padding: 4px;
+  }
+
+  .hamburger span{
+    height: 3px;
+  }
+
+  .menu{
+    top: 45px;
+  }
+
+  body{
+    padding-top: 45px;
   }
 
 }
+
 
 /* トップボタン */
 #pageTop {
@@ -364,7 +364,6 @@ display: grid;
   text-align: center;
   letter-spacing: 0.5px;
 }
-
 
 
 /* フッター*/
@@ -418,14 +417,10 @@ display: grid;
 <body>
 <header>
   <div class="header-inner">
-
     <div class="left">
-      <img src="くーちゃん基本.png" class="logo">
+　　 <a href="index.html">
+     <img src="ヘッダー.png"class="header-logo"></a>
 
-      <div class="title">
-        香川大学医学部附属病院 医療技術部 検査部門<br>
-        <small>Department of Medical Technique, Clinical Laboratory</small>
-      </div>
     </div>
 
     <div class="hamburger" id="hamburger">
