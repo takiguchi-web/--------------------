@@ -280,6 +280,44 @@ header {
   color: #555;
 }
 
+
+/* お願いボックス */
+.notice-box{
+  max-width:900px;
+  margin:40px auto 30px;
+  padding:22px 28px;
+  margin-top: 0;
+
+  background:#fff;
+
+  border:6px solid #fbedf2;
+  border-radius:14px;
+
+  box-shadow:0 6px 18px rgba(0,0,0,0.05);
+
+  box-sizing:border-box;
+}
+
+.notice-title{
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:14px;
+  color:#444;
+}
+
+.notice-box ul{
+  margin:0;
+  padding-left:22px;
+}
+
+.notice-box li{
+  margin-bottom:10px;
+  line-height:1.8;
+  color:#555;
+}
+
+
+
 /*分野分け*/
 .group-title {
   font-size: 22px;
@@ -386,6 +424,7 @@ display: grid;
     line-height: 1.8;
   }
 
+
   /* お願いボタン */
   .location-link {
     text-align: center;
@@ -446,6 +485,29 @@ display: grid;
   }
 
 }
+
+/* 大画面専用 */
+@media (min-width: 1600px) {
+
+  .intro,
+  .exam-list {
+    max-width: 1300px;
+  }
+
+  .exam-item {
+    padding: 30px;
+  }
+
+  .exam-content img {
+    width: 380px; 
+  }
+
+  .page-title h1 {
+    font-size: 40px;
+  }
+}
+
+
 
 /* トップボタン */
 #pageTop {
@@ -637,10 +699,22 @@ display: grid;
   </div>
 
 
+<div class="notice-box">
+  <div class="notice-title">
+    24時間ホルター心電図を受けられる際の注意事項
+  </div>
+
+  <ul>
+    <li>機械を装着している間は、入浴やシャワーはできません。</li>
+    <li>翌日の同じくらいの時間に機械をご自身で取り外していただき、当院までお持ちいただく必要があります。</li>
+      </ul>
+</div>
+
+
   <div class="exam-item">
     <h3>負荷心電図検査</h3>
     <div class="exam-content">
-      <img src="生理機能/心電図1.jpg">
+      <img src="生理機能/運動負荷.jpg">
       <p>当検査室では、運動や薬剤による心臓への負荷を評価する負荷心電図検査にも対応しています。<br>
 ・マスター負荷心電図<br>
 ・トレッドミル<br>
@@ -661,12 +735,24 @@ display: grid;
 </p>
     </div>
   </div>
+<div class="notice-box">
+  <div class="notice-title">
+    脳波検査を受けられる際の注意事項
+  </div>
+
+  <ul>
+    <li>検査中に眠れるように睡眠時間の調整をお願いいたします。</li>
+    <li>また、お子様の場合は来院前にできるだけ眠らせないようお願いいたします。</li>
+    <li>整髪料はつけないようにお願いいたします。</li>
+    <li>化粧が落ちる場合がございます。あらかじめご了承ください。</li>
+  </ul>
+</div>
 
 
   <div class="exam-item">
     <h3>神経伝導検査</h3>
     <div class="exam-content">
-   <img src="生理機能/脳波.jpg">
+   <img src="生理機能/神経.jpg">
     <p>神経伝導検査は、末梢の運動・感覚神経を電気刺激により興奮させることで、その反応を筋肉や神経上から記録する検査です。<br>
 痛みを伴う検査ですので、随時患者さんに声掛けを行いながら検査を行っています。<br>検査時間は1時間程度です。<br>
 その他、糖尿病性神経障害スクリーニングや電流知覚閾値検査もおこなっています。
@@ -695,7 +781,7 @@ display: grid;
   <div class="exam-item">
     <h3>終夜ポリグラフィー</h3>
     <div class="exam-content">
-      <p>終夜ポリグラフィーは、いびきや呼吸、脳波、酸素飽和度など睡眠中の身体のさまざまな生理的な変化を一晩かけて記録・分析する検査です。睡眠時無呼吸症候群の診断に役立ちます。</p>
+      <p>終夜ポリグラフィーは、いびきや呼吸、脳波、酸素飽和度などを一晩記録し、睡眠の質や呼吸状態を評価する検査です。睡眠時無呼吸症候群の診断に役立ちます。</p>
     </div>
   </div>
 
@@ -703,9 +789,21 @@ display: grid;
     <h3>尿素呼気試験</h3>
     <div class="exam-content">
       <p>尿素呼気試験は、胃がんの原因とされるヘリコバクター・ピロリ菌感染の有無を調べる検査です。</p>
-    </div>
+    
+ </div>
   </div>
+<div class="notice-box">
+  <div class="notice-title">
+    尿素呼気試験を受けられる際の注意事項 
+</div>
 
+  <ul>
+    <li>当日の朝は絶飲食でお願いいたします。</li>
+    <li>検査前の喫煙はお控えください。</li>
+      </ul>
+</div>
+</div>
+</div>
 
 </div>
 </section>

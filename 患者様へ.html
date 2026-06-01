@@ -222,8 +222,10 @@ header {
   font-size: 28px;
   font-weight: 700;
   color: #333;
-}
 
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* キャラクター吹き出し */
 .guide-message{
@@ -530,6 +532,49 @@ header {
 
 }
 
+ /* 大画面専用 */
+@media (min-width: 1600px) {
+
+  /* 本文全体の横幅を広げる */
+  .title-area,
+  .notice-box {
+    max-width: 1200px;
+  }
+
+  /* フロアマップ全体を広げる */
+  .map-area {
+    max-width: 1100px;
+  }
+
+  .map {
+    max-width: 1100px;
+  }
+
+  /* 見出しを少し大きく */
+  .section-title {
+    font-size: 32px;
+  }
+
+  /* キャラ＋吹き出しを大画面用に調整 */
+  .guide-mini {
+    gap: 20px;
+  }
+
+  .guide-character-mini {
+    width: 100px;
+  }
+
+  .guide-message-mini {
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+
+  /* モーダル少し大きく */
+  .modal-content {
+    max-width: 520px;
+  }
+}
+
 /* トップボタン */
 #pageTop {
   position: fixed;
@@ -773,7 +818,9 @@ header {
 </div>
 </div>
 
-<h2 class="section-title">患者様へのお願い</h2>
+<div class="title-area">
+  <h2 class="section-title">患者様へのお願い</h2>
+</div>
 
 <div class="notice-box" id="検査部">
   <div class="notice-title">

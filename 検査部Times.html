@@ -341,6 +341,60 @@ header {
 
 }
 
+/* 大画面用（1600px以上） */
+@media (min-width: 1600px) {
+
+  /* 全体の余白制御 */
+  #times {
+    max-width: 1400px;   /* 今の900pxより広げる */
+    margin: 100px auto;
+  }
+
+  /* タイトル */
+  #times h2 {
+    font-size: 40px;
+  }
+
+  /* 検索エリア */
+  .search-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  #searchInput {
+    font-size: 18px;
+    padding: 14px 18px;
+  }
+
+  /* リスト */
+  .times-item {
+    padding: 18px 20px;
+  }
+
+  .times-date {
+    width: 110px;
+    font-size: 15px;
+  }
+
+  .times-title {
+    font-size: 18px;
+  }
+
+  /* キャラクター画像 */
+  .search-character {
+    width: 200px;
+    top: -150px;
+    right: 120px;
+  }
+
+  /* ページネーション */
+  .pagination button {
+    padding: 10px 16px;
+    font-size: 15px;
+  }
+}
+
+
 /* トップボタン */
 #pageTop {
   position: fixed;

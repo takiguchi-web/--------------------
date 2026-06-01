@@ -1073,6 +1073,115 @@ section {
  
 }
 
+
+/* 大画面専用 */
+@media (min-width: 1600px) {
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  position: fixed;
+  top:0;
+  width:100%;
+}
+
+.hero{
+  height:100vh;
+  margin:0;
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit: contain;
+  background: #fff;
+  transform: scale(1.05);
+}
+  .intro,
+  .exam-list {
+    max-width: 1300px;
+  }
+
+  .exam-item {
+    padding: 30px;
+  }
+
+  .exam-content img {
+    width: 380px; 
+  }
+
+  .page-title h1 {
+    font-size: 40px;
+  }
+
+  /* 全体のベース幅 */
+  section h2,
+  section > *:not(.hero) {
+    max-width: 1200px;
+  }
+
+  /* お知らせ */
+  #news {
+    max-width: 1100px;
+  }
+
+  /* about */
+  #about {
+    max-width: 1100px;
+  }
+
+  .about-inner {
+    max-width: 1100px;
+  }
+
+  /* staff */
+  .staff-box {
+    max-width: 1000px;
+  }
+
+  /* 部門カード */
+  .dept-wrap {
+    max-width: 1100px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .dept-icon {
+    width: 160px;
+    height: 160px;
+  }
+
+  .dept-card h3 {
+    font-size: 20px;
+  }
+
+  /* ISO */
+  .iso-wrap {
+    max-width: 1100px;
+  }
+
+  .iso-img img {
+    width: 300px;
+  }
+
+  /* hero文字 */
+  .hero-box h2 {
+    font-size: 44px;
+  }
+
+  .hero-box p {
+    font-size: 18px;
+  }
+
+
+}
+
 /* 印刷用 */
 @media print {
 
@@ -1207,8 +1316,9 @@ section {
 </section>
 
 <section id="about">
-<h2>香川大学医学部附属病院　医療技術部　<br class="sp-only">
-検査部門のホームページへようこそ</h2>
+<h2>香川大学医学部附属病院<br class="sp-only">
+検査部のホームページへ<br class="sp-only">
+ようこそ</h2>
 
 <div class="about-inner">
 
@@ -1282,7 +1392,7 @@ section {
 
     <a href="生化学・免疫検査.html" class="dept-card blue">
       <div class="dept-header">
-        <img src="生化学.png" class="dept-icon">
+        <img src="home/生化学.jpeg" class="dept-icon">
         <h3>生化学・免疫検査</h3>
       </div>
     </a>
@@ -1296,7 +1406,7 @@ section {
 
     <a href="感染症検査.html" class="dept-card green">
       <div class="dept-header">
-        <img src="微生物.png" class="dept-icon">
+        <img src="home/培養同定検査.png" class="dept-icon">
         <h3>感染症検査</h3>
       </div>
     </a>

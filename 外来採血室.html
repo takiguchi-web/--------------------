@@ -386,6 +386,7 @@ header {
   margin: 0;
   flex: 1;
   color: #555;
+  min-width: 0;
 }
 
 .exam-images{
@@ -668,6 +669,49 @@ header {
 }
 
 
+/* 大画面専用 */
+@media (min-width: 1600px) {
+
+  .intro,
+  .exam-list {
+    max-width: 1300px;
+  }
+
+  .exam-item {
+    padding: 30px;
+  }
+
+  .exam-content img {
+    width: 380px; 
+  }
+
+  .page-title h1 {
+    font-size: 40px;
+  }
+}
+
+/* 固定 */
+.image-box {
+  position: relative;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.step-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-30%, -30%);
+}
+
+}
+
 /* トップボタン */
 #pageTop {
   position: fixed;
@@ -863,6 +907,9 @@ header {
 　15:00～16:45は有人受付での対応となります。
   </p>
 </div>
+
+</div>
+
 
 <div class="tab-buttons">
   <button class="tab-btn active" data-tab="blood">
