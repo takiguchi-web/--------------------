@@ -360,31 +360,30 @@ display: grid;
 
 /* スマホ */
 @media (max-width: 600px) {
-
-  header {
-    padding: 4px 12px;
+  .left{
+    flex: 1;
+    min-width: 0;
   }
 
-  .header-logo {
+  .header-logo{
+    max-width: calc(100vw - 70px);
     height: 40px;
+    object-fit: contain;
   }
 
-  .header-inner {
+  .header-inner{
     width: 100%;
   }
 
-  .hamburger {
+  .hamburger{
     display: flex;
     flex-shrink: 0;
-    margin-left: 10px;
 
     width: 30px;
     height: 22px;
     padding: 4px;
-  }
 
-  .hamburger span {
-    height: 3px;
+    margin-left: auto;
   }
 
   .menu {
