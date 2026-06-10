@@ -36,7 +36,6 @@ header {
   margin-left: 0;
 }
 
-
 .header-inner {
   display: flex;
   justify-content: space-between;
@@ -130,7 +129,6 @@ header {
   background: #ddd;
 }
 
-
 /* ハンバーガー アコーディオン */
 
 .accordion-header {
@@ -166,17 +164,27 @@ header {
 }
 
 
-/* スライド */
-.hero {
-  width: 100%;
-  aspect-ratio: 16 / 7;
-  height: auto;
+body {
   margin: 0;
   padding: 0;
 }
 
-.slider {
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* スライド */
+.hero {
   position: relative;
+  width: 100%;
+  height: 80vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.slider {
   width: 100%;
   height: 100%;
 }
@@ -186,15 +194,22 @@ header {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+
   opacity: 0;
-  transition: opacity 1.5s;
+  transition: opacity 2s ease-in-out;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .slide.active {
   opacity: 1;
+  z-index: 1;
 }
-
 
 /* 左の半透明ボックス */
 .hero-box {
@@ -230,10 +245,16 @@ header {
 
 /* タイトル */
 .hero-box h2 {
-  font-size: 36px;
+  ffont-size: clamp(20px, 2vw, 36px);
   margin-bottom: 15px;
   border-bottom: 1px solid rgba(255,255,255,0.5);
   padding-bottom: 10px;
+
+  white-space: nowrap;
+}
+
+.nowrap{
+  white-space: nowrap;
 }
 
 /* 文章 */
@@ -248,12 +269,12 @@ section {
   scroll-margin-top: 75px;
 }
 
-/* ：中身だけ中央寄せ（heroは除外） */
-section > *:not(h2):not(.hero) {
+.section-inner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
+
 
 /* 見出し */
 section h2 {
@@ -261,15 +282,6 @@ section h2 {
   margin: 0 auto 20px;
   padding: 0 20px;
 }
-
-/* heroは完全フル幅維持 */
-.hero {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 0;
-}
-
 
 
 /* お知らせ */
@@ -879,12 +891,9 @@ line-height: 2.4;
     font-size: 14px;
   }
 
- .slider {
-    width: 100%;
-    height: 100%;
-  }
 
-  .slide {
+
+ .slide {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -929,12 +938,15 @@ line-height: 2.4;
 
   body {
     padding-top: 45px;
+    margin: 0;
+    padding: 0;
   }
 
  .hero {
     position: relative;
     aspect-ratio: 16 / 9;
     width: 100%;
+    height: 60vh;
     max-width: 100%;
     overflow: hidden;
   }
@@ -968,7 +980,7 @@ section {
     padding: 30px 0;
   }
 
-  section > * {
+  section:not(.hero)  > * {
     padding: 0 15px;
   }
 
@@ -984,13 +996,7 @@ section {
     object-position: center;
      }
 
-  .slider {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: auto;
-    position: relative;
-  }
-  
+
  #news {
     margin-top: 40px;
   }
@@ -1087,24 +1093,22 @@ header{
   width:100%;
 }
 
-.hero{
-  height:100vh;
-  margin:0;
-  padding:0;
-  position:relative;
-  overflow:hidden;
+.hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-.slide{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit: contain;
-  background: #fff;
-  transform: scale(1.05);
+.slide picture {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
-  .intro,
+
+ .intro,
   .exam-list {
     max-width: 1300px;
   }
@@ -1256,19 +1260,33 @@ header{
 
 
 <section class="hero">
-  <div class="slider">
-    <img src="home/血液.jpg" class="slide active">
-    <img src="home/沈渣.jpg" class="slide">
-    <img src="home/培地.jpg" class="slide">
-  </div>
+<div class="slider">
 
+  <img class="slide active"
+       src="home/血液.jpg"
+       srcset="home/血液.jpg 1x, home/血液大.jpg 2x"
+       alt="">
+
+  <img class="slide"
+       src="home/沈渣.jpg"
+       srcset="home/沈渣.jpg 1x, home/沈渣大.jpg 2x"
+       alt="">
+
+  <img class="slide"
+       src="home/培地.jpg"
+       srcset="home/培地.jpg 1x, home/培地大.jpg 2x"
+       alt="">
+
+</div>
+ 
 <div class="hero-box">
-    <h2>品質・精確・創造</h2>
-
+   <h2><span class="nowrap">品質・精確・創造</span></h2>
+ 
  </div>
 </section>
 
 <section id="news">
+<div class="section-inner">
 <h2>お知らせ</h2>
 
 <div class="news-item">
@@ -1341,7 +1359,7 @@ header{
   </div>
 
   <div class="chief-box">
-    <img src="技師長.png" class="chief-img">
+    <img src="home/技師長.jpg" class="chief-img">
 
     <div class="chief-info">
       検査部門 技師長<br>
@@ -1392,7 +1410,7 @@ header{
 
     <a href="生化学・免疫検査.html" class="dept-card blue">
       <div class="dept-header">
-        <img src="home/生化学.jpeg" class="dept-icon">
+        <img src="home/生化学.jpg" class="dept-icon">
         <h3>生化学・免疫検査</h3>
       </div>
     </a>
@@ -1406,7 +1424,7 @@ header{
 
     <a href="感染症検査.html" class="dept-card green">
       <div class="dept-header">
-        <img src="home/培養同定検査.png" class="dept-icon">
+        <img src="home/感染症.jpg" class="dept-icon">
         <h3>感染症検査</h3>
       </div>
     </a>
